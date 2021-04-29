@@ -1,9 +1,10 @@
-https://github.com/IgorGarcia10/projetoUC
+﻿https://github.com/IgorGarcia10/projetoUC
+
 Igor Alexandre Lages Garcia 
 RA 817128349
 
 Julielen Santos Cruz
 RA 819229243
 
-Ícaro Duarte 
+Ícaro Duarte Carvalho Torres
 RA 820145355
