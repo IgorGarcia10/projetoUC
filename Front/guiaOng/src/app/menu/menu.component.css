@@ -1,9 +1,20 @@
-.fs-14{
-    font-size: 14pt;
-    color: #59B9B3;
-    font-weight: bold;
-  }
-  
-  a{
-    cursor: pointer;
-  }
+.fs-14 {
+  font-size: 14pt;
+  color: #59B9B3;
+  font-weight: bold;
+}
+
+a {
+  cursor: pointer;
+}
+
+.ico-user{
+  font-size: 14pt;
+  color: #59B9B3;
+  margin-right: 0.5rem;
+  margin-left: 1rem;
+}
+
+.ml1{
+  margin-left: 1rem;
+}
