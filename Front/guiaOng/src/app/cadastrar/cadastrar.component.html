@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div class="row d-flex align-items-center">
+
+        <div class="col-md-6 sombra" id="img-bg">
+            <div class="row fundo"></div>
+        </div>
+
+        <div class="col-md-6 p-0">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-11">
+
+                    <h1 class="text-center mb-3 mt-5 cb">Entrar</h1>
+
+                    <div class="form-group cb fs">
+                        <label for="usuario">Nome</label>
+                        <input class="form-control mb-2" type="text" id="usuario" placeholder="Seu usuário">
+                    </div>
+                    <div class="form-group cb fs">
+                        <label for="email">Email</label>
+                        <input class="form-control mb-2" type="email" id="email" placeholder="Seu Email">
+                    </div>
+                    <div class="form-group cb fs">
+                        <label for="cnpj">CNPJ</label>
+                        <input class="form-control mb-2" type="text" id="cnpj" placeholder="Seu CNPJ">
+                    </div>
+
+                    <div class="form-group cb fs">
+                        <label for="descriicao">Insira aqui uma descrição sobre sua ONG</label>
+                        <textarea class="form-control mb-2" id="descricao" rows="3"
+                            placeholder="Sua Descrição aqui"></textarea>
+                    </div>
+
+                    <div class="form-group cb fs">
+                        <label class="form-group cb fs" for="descriicao">Insira seu endereço</label>
+                        <input type="text" class="form-control" placeholder="Rua">
+                    </div>
+                    <div class="form-row d-flex mt-2 mb-3">
+                        <div class="col-7">
+                            <input type="text" class="form-control pr-1" placeholder="Cidade">
+                        </div>
+                        <div class="col ">
+                            <input type="text" class="form-control" placeholder="Estado">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="CEP">
+                        </div>
+                    </div>
+
+                    <div class="form-group cb fs mb-2">
+                        <label for="tipo">Tipo de Categoria</label>
+                        <select class="form-control" name="tipo" id="tipo">
+                            <option value="fome">Fome</option>
+                            <option value="frio">Frio</option>
+                            <option value="criancas">Crianças</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-3 cb fs">
+                        <label for="senha">Senha</label>
+                        <input class="form-control" type="password" id="senha" placeholder="Digite sua Senha">
+                    </div>
+
+                    <div class="form-group mb-3 cb fs">
+                        <label for="senha">Confirme sua senha</label>
+                        <input class="form-control" type="password" id="senha" placeholder="Confirme sua Senha">
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <div class="m-1">
+                            <button type="submit" class="btn btn-danger" routerLink='/entrar'>Cancelar</button>
+                        </div>
+                        <div class="m-1">
+                            <button type="submit" class="btn btn-success" >Cadastrar</button>
+                        </div>
+                      </div>
+
+                    <p class="text-center mt-3">Já tem um cadastro<a href="">Volte ao Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
