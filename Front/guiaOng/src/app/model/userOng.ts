@@ -1,6 +1,5 @@
-import { Categoria } from "./categoria"
 
-export class Ong{
+export class UserOng{
     public idUser: number
     public emailOng: string
     public cnpj: string
@@ -12,6 +11,6 @@ export class Ong{
     public cidade: string
     public rua: string
     public cep: string
-    public FK_CategoriaID: Categoria
+    public FK_CategoriaID: string
 }
 
