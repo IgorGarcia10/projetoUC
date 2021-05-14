@@ -1,0 +1,25 @@
+<mat-accordion *ngIf="usuarios.length > 0">
+  <mat-expansion-panel *ngFor="let usuarios of usuarios">
+    <mat-expansion-panel-header> Nome: {{ usuarios.nome }}</mat-expansion-panel-header>
+    <p>Data de Nascimento: {{ usuarios.dataNascimento}}</p>
+    <p>Fone: {{ usuarios.fone }}</p>
+    <p>Email: {{ usuarios.email }}</p>
+    <p>Tipo: {{usuarios.tipo}}</p>
+    <p>CPF: {{usuarios.cpf}}</p>
+    <p>Senha:{{usuarios.senha}}</p>
+    <p> CEP: {{usuarios.cep}}</p>
+    <p> Lagradouro: {{usuarios.lagradouro}}</p>
+    <p> Numero: {{usuarios.numero}}</p>
+    <p> Complemento: {{usuarios.complemento}}</p>
+    <p> Bairro: {{usuarios.bairro}}</p>
+    <p> UF: {{usuarios.uf}}</p>
+    <p> Cidade: {{usuarios.cidade}}</p>
+    <mat-action-row>
+      <button mat-button color="primary">EDITAR</button>
+      <button mat-button color="warn">REMOVER</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="mat-body-1" style="text-align: center;" *ngIf="usuarios.length <= 0">
+  Nenhum cliente cadastrado
+</p>
