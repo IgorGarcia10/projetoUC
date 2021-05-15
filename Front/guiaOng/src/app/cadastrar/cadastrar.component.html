@@ -13,12 +13,13 @@
 
                     <div class="form-group cb fs">
                         <label for="usuario">Nome</label>
-                        <input [(ngModel)]='userOng.nome' class="form-control mb-2" type="text" id="usuario" placeholder="Seu usuário">
+                        <input [(ngModel)]='user.nome' class="form-control mb-2" type="text" id="usuario" placeholder="Seu usuário">
                     </div>
                     <div class="form-group cb fs">
                         <label for="email">Email</label>
-                        <input [(ngModel)]='userOng.emailOng' class="form-control mb-2" type="email" id="email" placeholder="Seu Email">
+                        <input [(ngModel)]='user.email' class="form-control mb-2" type="email" id="email" placeholder="Seu Email">
                     </div>
+                    <!-- 
                     <div class="form-group cb fs">
                         <label for="cnpj">CNPJ</label>
                         <input [(ngModel)]='userOng.cnpj' class="form-control mb-2" type="text" id="cnpj" placeholder="Seu CNPJ">
@@ -53,16 +54,16 @@
                             <option value="frio">Frio</option>
                             <option value="criancas">Crianças</option>
                         </select>
-                    </div>
+                    </div> -->
 
                     <div class="form-group mt-3 cb fs">
                         <label for="senha">Senha</label>
-                        <input (input)='confirmSenha($event)'  class="form-control" type="password" id="senha" placeholder="Digite sua Senha">
+                        <input (input)='confirmaSenha($event)'  class="form-control" type="password" id="senha" placeholder="Digite sua Senha">
                     </div>
 
                     <div class="form-group mb-3 cb fs">
                         <label for="senha">Confirme sua senha</label>
-                        <input [(ngModel)]='userOng.senha' class="form-control" type="password" id="senha" placeholder="Confirme sua Senha">
+                        <input [(ngModel)]='user.senha' class="form-control" type="password" id="senha" placeholder="Confirme sua Senha">
                     </div>
 
                     <div class="d-flex justify-content-center">
@@ -70,7 +71,7 @@
                             <button type="submit" class="btn btn-danger" routerLink='/entrar'>Cancelar</button>
                         </div>
                         <div class="m-1">
-                            <button (click)='cadastrarOng()' type="submit" class="btn btn-success" >Cadastrar</button>
+                            <button (click)='cadastrar()' type="submit" class="btn btn-success" >Cadastrar</button>
                         </div>
                       </div>
 

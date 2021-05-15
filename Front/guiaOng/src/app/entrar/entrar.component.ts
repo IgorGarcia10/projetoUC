@@ -13,7 +13,7 @@ import { AuthService } from '../service/auth.service';
 export class EntrarComponent implements OnInit {
 
 
-  user: UserLogin = new UserLogin
+  userLogin: UserLogin = new UserLogin
 
   constructor(
     private auth: AuthService,
@@ -24,14 +24,12 @@ export class EntrarComponent implements OnInit {
     window.scroll(0,0)
   }
 
-
   entrar(){
-    this.auth.entrar(this.user).subscribe((resp: UserLogin) =>{
-      this.user = resp
+    this.auth.entrar(this.userLogin).subscribe((resp: UserLogin) =>{
+      this.userLogin = resp
 
-      environment.nome = this.user.nome
-      environment.id = this.user.iduser
-
+      environment.nome = this.userLogin.nome
+      environment.id = this.userLogin.iduser
 
       this.router.navigate(['/home'])
     }, erro =>{

@@ -15,18 +15,12 @@ export class AuthService {
   ) { }
 
   //caminhos devem estar iguais aos mensionados no beck
-  entrar(user: UserLogin): Observable<UserLogin>{
-    return this.http.post<UserLogin>('http//:localhost:8080/usuarios/logar', user)
+  entrar(userLogin: UserLogin): Observable<UserLogin>{
+    return this.http.post<UserLogin>('http//:localhost:8080/usuarios/logar', userLogin)
   }
-
-
 
   cadastrar(user: User): Observable<User>{
     return this.http.post<User>('http//:localhost:8080/usuarios/cadastrar', user)
-  }
-
-  cadastrarOng(userOng: UserOng): Observable<UserOng>{
-    return this.http.post<UserOng>('http//:localhost:8080/usuarios/cadastrar', userOng)
   }
 
 }

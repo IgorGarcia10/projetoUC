@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserOng } from '../model/userOng';
 import { User } from '../model/user';
 import { AuthService } from '../service/auth.service';
 
@@ -11,10 +10,10 @@ import { AuthService } from '../service/auth.service';
 })
 export class CadastrarComponent implements OnInit {
 
+
   user: User = new User
-  userOng: UserOng = new UserOng
-  confirmaSenha: string
-  categoriaOng: string
+  confirmarSenha: string
+  // categoriaOng: boolean
 
   constructor(
     private authService: AuthService,
@@ -25,23 +24,22 @@ export class CadastrarComponent implements OnInit {
     window.scroll(0, 0)
   }
 
-
-  confirmSenha(event: any) {
-    this.confirmaSenha = event.target.value
+  confirmaSenha(event: any) {
+    this.confirmarSenha = event.target.value
   }
 
-  tipoOng(event: any) {
-    this.categoriaOng = event.target.value
-  }
+  // tipoOng(event: any) {
+  //   this.categoriaOng = event.target.value
+  // }
 
-  cadastrarOng() {
-    this.userOng.FK_CategoriaID = this.categoriaOng
+  cadastrar() {
+    // this.user.useradmin = this.categoriaOng
 
-    if (this.userOng.senha != this.confirmaSenha) {
+    if (this.user.senha != this.confirmarSenha) {
       alert('As senhas não conferem')
     } else {
-      this.authService.cadastrarOng(this.userOng).subscribe((resp: UserOng) => {
-        this.userOng = resp
+      this.authService.cadastrar(this.user).subscribe((resp: User) => {
+        this.user = resp
         this.router.navigate(['/entrar'])
         alert('Usuário cadastrado com sucesso!')
       })
