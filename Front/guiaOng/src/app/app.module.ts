@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { UsuarioInserirComponent } from './usuario-inserir/usuario-inserir.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -57,7 +58,11 @@ import { UsuarioService } from './service/usuario.service';
     MatDatepickerModule, 
     MatNativeDateModule,
   ],
-  providers: [UsuarioService],
+  providers: [
+    UsuarioService,
+  {provide: LocationStrategy,
+  useClass: HashLocationStrategy}
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
