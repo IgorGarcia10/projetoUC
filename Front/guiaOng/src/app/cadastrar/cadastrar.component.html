@@ -18,7 +18,9 @@
                     <div class="form-group cb fs">
                         <label for="email">Email</label>
                         <input [(ngModel)]='user.email' class="form-control mb-2" type="email" id="email" placeholder="Seu Email">
-                    </div>
+                    </div> -->
+
+                    <!-- inicio do comentario  -->
                     <!-- 
                     <div class="form-group cb fs">
                         <label for="cnpj">CNPJ</label>
@@ -54,9 +56,9 @@
                             <option value="frio">Frio</option>
                             <option value="criancas">Crianças</option>
                         </select>
-                    </div> -->
+                    </div> --> <!-- fim do comentario  -->
 
-                    <div class="form-group mt-3 cb fs">
+                    <!-- <div class="form-group mt-3 cb fs">
                         <label for="senha">Senha</label>
                         <input (input)='confirmaSenha($event)'  class="form-control" type="password" id="senha" placeholder="Digite sua Senha">
                     </div>
@@ -73,7 +75,140 @@
                         <div class="m-1">
                             <button (click)='cadastrar()' type="submit" class="btn btn-success" >Cadastrar</button>
                         </div>
-                      </div>
+                      </div> -->
+                      <mat-card>
+                        <form (submit)="onAdicionarUsuario(clienteForm)" #clienteForm="ngForm">
+                      
+                          <mat-form-field>
+                            <mat-label>Tipo de Pessoa</mat-label>
+                            <mat-select required value="tipo" matInput name="tipo" type="text" ngModel #tipo="ngModel">
+                              <mat-option required value="Física">Física</mat-option>
+                              <mat-option required value="Jurídica">Jurídica</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="tipo.invalid">Escolha um tipo de pessoa</mat-error>
+                          </mat-form-field>
+                          <!-- Nome e data de Nascimento -->
+                          <mat-form-field class="grupo1"> 
+                            <input required minlength="3" type="text" matInput placeholder="Nome Completo" name="nome" ngModel
+                              #nome="ngModel" />
+                            <mat-error *ngIf="nome.invalid">Nome com no minimo 3 caracteres</mat-error>
+                          </mat-form-field>
+                      
+                          <mat-form-field class="grupo2">
+                            <mat-label>Data de Nascimento</mat-label>
+                            <input required matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" name="dataNascimento" ngModel
+                              #dataNascimento="ngModel">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                      
+                          <!-- Numero e CPF -->
+                          <mat-form-field class="grupo1">
+                            <input required minlength="11" type="text" matInput placeholder="Telefone" name="fone" ngModel #fone="ngModel" />
+                            <mat-error *ngIf="fone.invalid">Digite um telefone válido</mat-error>
+                          </mat-form-field>
+                      
+                          <mat-form-field class="grupo2">
+                            <input required minlength="11" type="cpf" matInput placeholder="CPF ou CNPJ" name="cpf" ngModel #cpf="ngModel" />
+                            <mat-error *ngIf="cpf.invalid">Não é necessario numeros e traços</mat-error>
+                          </mat-form-field>
+                      
+                          <!-- Agrupar email e Confirme seu email -->
+                          <mat-form-field class="grupo1">
+                            <input required type="text" matInput placeholder="E-mail" name="email" ngModel #email="ngModel" />
+                            <mat-error *ngIf="email.invalid">Digite um email válido</mat-error>
+                          </mat-form-field>
+                      
+                          <mat-form-field class="grupo2">
+                            <input required type="text" matInput placeholder="Confirme seu E-mail" name="confirmeEmail" ngModel
+                              #confirmeEmail="ngModel" />
+                            <mat-error *ngIf="email.invalid">Digite um email válido</mat-error>
+                          </mat-form-field>
+                      
+                          <!-- Campo unico CEP  -->
+                          <mat-form-field>
+                            <input required minlength="5" type="text" matInput placeholder="Digite seu CEP" name="cep" ngModel
+                              #cep="ngModel" />
+                            <mat-error *ngIf="cep.invalid">Digite seu CEP com 5 digitos</mat-error>
+                          </mat-form-field>
+                      
+                          <!-- Agrupar Lagradouro e Numero-->
+                          <mat-form-field class="grupo1">
+                            <input required minlength="2" type="text" matInput placeholder="Lagradouro" name="lagradouro" ngModel
+                              #lagradouro="ngModel" />
+                            <mat-error *ngIf="lagradouro.invalid">Digite avenida, rua, travessa</mat-error>
+                          </mat-form-field>
+                      
+                          <mat-form-field class="grupo2">
+                            <input required minlength="2" type="text" matInput placeholder="Numero" name="numero" ngModel #numero="ngModel" />
+                            <mat-error *ngIf="numero.invalid">Digite pelo menos 2 numeros</mat-error>
+                          </mat-form-field>
+                      
+                          <!-- Agrupar Complemento e Bairro -->
+                          <mat-form-field class="grupo1">
+                            <input type="text" matInput placeholder="Complemento" name="complemento" ngModel #complemento="ngModel" />
+                          </mat-form-field>
+                      
+                          <mat-form-field class="grupo2"> 
+                            <input required minlength="2" type="text" matInput placeholder="Bairro" name="bairro" ngModel #bairro="ngModel" />
+                            <mat-error *ngIf="bairro.invalid">Digite com bairro no minimo duas letras</mat-error>
+                          </mat-form-field>
+                      
+                          <!-- Agrupar UF e Cidade-->
+                      
+                          <mat-form-field class="grupo1">
+                            <mat-label>UF</mat-label>
+                            <mat-select required value="uf" matInput name="uf" type="text" ngModel #tipo="ngModel">
+                              <mat-option required *ngFor="let uf of ufs" [value]="uf.value">
+                                {{uf.viewValue}}
+                              </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="tipo.invalid">Digite um email válido</mat-error>
+                          </mat-form-field>
+                      
+                          <mat-form-field class="grupo2">
+                            <input required minlength="5" type="text" matInput placeholder="Cidade" name="cidade" ngModel #cidade="ngModel" />
+                            <mat-error *ngIf="cidade.invalid">Digite um numero</mat-error>
+                          </mat-form-field>
+                      
+                          <!-- Agrupar -->
+                          <!-- Até aqui SENHA E CONFIRME SUA SENHA-->
+                          
+                      
+                            <mat-form-field class="grupo1">
+                              <mat-label>Escolha sua senha</mat-label>
+                              <input matInput [type]="hide ? 'password' : 'text'" required value="senha" name="senha" ngModel #data.repetirSenha="ngModel">
+                      
+                              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      
+                              </button>
+                              <!-- <mat-error *ngIf="senha != repetirSenha">As senhas digitadas estão diferentes</mat-error> -->
+                            </mat-form-field>
+                      
+                      
+                            <mat-form-field class="grupo2">
+                              <mat-label>Repetir sua senha</mat-label>
+                              <input matInput [type]="hide ? 'password' : 'text'" required value="repetirSenha" name="repetirSenha" ngModel #data.repetirSenha="ngModel">
+                      
+                              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                              </button>
+                      
+                              <!-- <mat-error *ngIf="senha != repetirSenha">As senhas digitadas estão diferentes</mat-error> -->
+                            </mat-form-field>
+                      
+                            <br>
+                          
+                          <button class = "button" color="primary" mat-raised-button >
+                            Cadastrar
+                          </button>
+                        </form>
+                      </mat-card>
+
+
 
                     <p class="text-center mt-3">Já tem um cadastro<a routerLink='/entrar'>Volte ao Login</a></p>
                 </div>

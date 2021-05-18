@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { User } from '../model/user';
-import { AuthService } from '../service/auth.service';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UsuarioService } from '../service/usuario.service';
 
@@ -11,33 +8,25 @@ interface Uf {
 }
 
 @Component({
-  selector: 'app-cadastrar',
-  templateUrl: './cadastrar.component.html',
-  styleUrls: ['./cadastrar.component.css']
+  selector: 'app-usuario-inserir',
+  templateUrl: './usuario-inserir.component.html',
+  styleUrls: ['./usuario-inserir.component.css'],
 })
-export class CadastrarComponent implements OnInit {
-
+export class UsuarioInserirComponent {
+  
   minDate: Date;
   maxDate: Date;
-  hide = true;
 
-
-  user: User = new User
-  confirmarSenha: string
-  // categoriaOng: boolean
-
-  constructor(public usuarioService: UsuarioService,
-    private authService: AuthService,
-    private router: Router
-  ) {
+  constructor(public usuarioService: UsuarioService) {
 
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 120, 0, 1);
     this.maxDate = new Date(currentYear - 18, 1, 1)
-
    }
 
-   ufs: Uf[] = [
+  hide = true;
+  
+  ufs: Uf[] = [
     {value:  'AC', viewValue: 'Acre'},
 {value:  'AL', viewValue: 'Alagoas'},
 {value:  'AP', viewValue: 'Amapá'},
@@ -67,9 +56,12 @@ export class CadastrarComponent implements OnInit {
 {value:  'TO', viewValue: 'Tocantins'},    
   ];
 
-  ngOnInit() {
-    window.scroll(0, 125)
-  }
+  /* comparacao(form: NgForm) { // here we have the 'passwords' group
+    let senha = form.value.senha;
+    let confirmaSenha = form.value.repetirSenha;
+
+    return senha === confirmaSenha ? null : { notSame: true }    
+  }  */
 
   data = {
     senha: '',
@@ -102,27 +94,7 @@ export class CadastrarComponent implements OnInit {
 
 
   }
-
-  confirmaSenha(event: any) {
-    this.confirmarSenha = event.target.value
-  }
-
-  // tipoOng(event: any) {
-  //   this.categoriaOng = event.target.value
-  // }
-
-  cadastrar() {
-    // this.user.useradmin = this.categoriaOng
-
-    if (this.user.senha != this.confirmarSenha) {
-      alert('As senhas não conferem')
-    } else {
-      this.authService.cadastrar(this.user).subscribe((resp: User) => {
-        this.user = resp
-        this.router.navigate(['/entrar'])
-        alert('Usuário cadastrado com sucesso!')
-      })
-    }
-  }
-
+  
 }
+
+

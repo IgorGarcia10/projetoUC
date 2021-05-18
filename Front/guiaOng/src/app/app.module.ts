@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { UsuarioInserirComponent } from './usuario-inserir/usuario-inserir.component';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -13,6 +14,20 @@ import { HomeComponent } from './home/home.component';
 import { SobreComponent } from './sobre/sobre.component';
 
 
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatExpansionModule } from '@angular/material/expansion';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { UsuarioService } from './service/usuario.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,15 +36,28 @@ import { SobreComponent } from './sobre/sobre.component';
     EntrarComponent,
     CadastrarComponent,
     HomeComponent,
-    SobreComponent
+    SobreComponent,
+    UsuarioInserirComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NoopAnimationsModule,
+    MatInputModule, 
+    MatCardModule, 
+    MatButtonModule, 
+    MatToolbarModule, 
+    MatExpansionModule, 
+    MatFormFieldModule, 
+    MatSelectModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDatepickerModule, 
+    MatNativeDateModule,
   ],
-  providers: [],
+  providers: [UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
