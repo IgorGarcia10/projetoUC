@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { UsuarioInserirComponent } from './usuario-inserir/usuario-inserir.component';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -27,6 +26,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { UsuarioService } from './service/usuario.service';
+import { ContatoComponent } from './contato/contato.component';
+import { OngsComponent } from './ongs/ongs.component';
+import { OngIndividualComponent } from './ong-individual/ong-individual.component';
+import { DoacoesComponent } from './doacoes/doacoes.component';
+import { ContaComponent } from './conta/conta.component';
+import { CadastroCategoriaComponent } from './cadastro-categoria/cadastro-categoria.component';
 
 
 @NgModule({
@@ -38,7 +43,13 @@ import { UsuarioService } from './service/usuario.service';
     CadastrarComponent,
     HomeComponent,
     SobreComponent,
-    UsuarioInserirComponent
+    UsuarioInserirComponent,
+    ContatoComponent,
+    OngsComponent,
+    OngIndividualComponent,
+    DoacoesComponent,
+    ContaComponent,
+    CadastroCategoriaComponent
   ],
   imports: [
     BrowserModule,
@@ -60,8 +71,7 @@ import { UsuarioService } from './service/usuario.service';
   ],
   providers: [
     UsuarioService,
-  {provide: LocationStrategy,
-  useClass: HashLocationStrategy}
+  
 ],
   bootstrap: [AppComponent]
 })

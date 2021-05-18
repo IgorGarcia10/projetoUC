@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../service/auth.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-doacoes',
+  templateUrl: './doacoes.component.html',
+  styleUrls: ['./doacoes.component.css']
 })
-export class HomeComponent implements OnInit {
+export class DoacoesComponent implements OnInit {
 
-  ong = [
+  doacao = [
     {
     nome:"Fome",
     descricao: "Breve descrição sobre a Ong"
@@ -25,10 +26,12 @@ export class HomeComponent implements OnInit {
     descricao: "Breve descrição sobre a Ong"
   }
 ]
-  constructor() { }
+  constructor(
+    public auth: AuthService
+   ) { }
 
-  ngOnInit() {
-    window.scroll(0, 0) 
+  ngOnInit(){
+    window.scroll(0,0)
   }
 
 }

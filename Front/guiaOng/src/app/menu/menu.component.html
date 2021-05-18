@@ -1,66 +1,91 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- Menu do Site -- aparece em toda o site -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex align-items-center ">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
         aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-        <ul class="navbar-nav mr-auto d-flex align-items-center">
-            <li class="nav-item">
-                <i class="fa fa-user-circle-o ico-user" aria-hidden="true"></i>
-            </li>
+    <div class="collapse navbar-collapse justify-content-around" id="conteudoNavbarSuportado">
 
-            <li class="nav-item pl-3">
-                <p class="m-0 font-weight-bold fs-14 " *ngIf="nome != '' " id="nomeUser">{{nome}}</p>
-                <p class="m-0 font-weight-bold fs-14 " *ngIf="nome == '' " id="nomeUser">Olá Doador!</p>
-            </li>
-            <li class="nav-item pl-3">
-                <!--<a class="fs-14 text-white" [routerLink]="['/user-edit', id]"> -->
-                <a class="fs-14">
-                    <i class="fa fa-pencil-square-o ml1" *ngIf="nome !='' " aria-hidden="true"></i>
-                </a>
-            </li>
-        </ul>
+        <div class="col-md-auto">
+            <ul class="navbar-nav mr-auto d-flex align-items-center justify-content-start">
+                <li class="nav-item">
+                    <i class="fa fa-user-circle-o ico-user" aria-hidden="true"></i>
+                </li>
+    
+                <li class="nav-item">
+                    <p class="m-0 font-weight-bold fs-14 " *ngIf="nome != '' " id="nomeUser">{{nome}}</p>
+                    <p class="m-0 font-weight-bold fs-14 " *ngIf="nome == '' " id="nomeUser">Olá Doador!</p>
+                </li>
+                <li class="nav-item">
+                    <!--<a class="fs-14 text-white" [routerLink]="['/user-edit', id]"> -->
+                    <a class="fs-14">
+                        <i class="fa fa-pencil-square-o" *ngIf="nome !='' " aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="col-md-auto">
+            <ul class="navbar-nav m-auto d-flex align-items-center">
+                <li class="nav-item p-3 "><a>
+                    <p class="m-0 font-weight-bold fs-14 sb" routerLink='/home' >Inicio
+                        <!--{{nome}}-->
+                    </p></a>
+                </li>
+                <li class="nav-item p-3"><a href="#comofunciona">
+                    <p class="m-0 font-weight-bold fs-14 sb">Como Funciona
+                        <!--{{nome}}-->
+                    </p></a>
+                </li>
+    
+                <li class="nav-item p-3"><a>
+                    <p class="m-0 font-weight-bold fs-14 sb" routerLink='/sobre'>Quem Somos
+                        <!--{{nome}}-->
+                    </p></a>
+                </li>
+    
+                <li class="nav-item p-3"><a>
+                    <p class="m-0 font-weight-bold fs-14 sb" routerLink='/ongs'>Ongs
+                        <!--{{nome}}-->
+                    </p></a>
+                </li>
+    
+                <li class="nav-item p-3" ><a>
+                    <p class="m-0 font-weight-bold fs-14 sb" routerLink='/doacoes'>Doações
+                        <!--{{nome}}-->
+                    </p></a>
+                </li>
 
-        <ul class="navbar-nav m-auto d-flex align-items-center">
-            <li class="nav-item p-3">
-                <p class="m-0 font-weight-bold fs-14 " id="nomeUser">Como Funciona
-                    <!--{{nome}}-->
-                </p>
-            </li>
-
-            <li class="nav-item p-3">
-                <p class="m-0 font-weight-bold fs-14 " id="nomeUser">Quem Somos
-                    <!--{{nome}}-->
-                </p>
-            </li>
-
-            <li class="nav-item p-3">
-                <p class="m-0 font-weight-bold fs-14 " id="nomeUser">Ajuda
-                    <!--{{nome}}-->
-                </p>
-            </li>
-
-            <li class="nav-item p-3">
-                <p class="m-0 font-weight-bold fs-14 " id="nomeUser">Minha Conta
-                    <!--{{nome}}-->
-                </p>
-            </li>
-
-            <li class="nav-item p-3">
-                <p class="m-0 font-weight-bold fs-14 " id="nomeUser">Minhas Doações
-                    <!--{{nome}}-->
-                </p>
-            </li>
-        </ul>
-
-        <ul class="navbar-nav m-auto">
-            <li>
-                <!-- <a class="text-white fs-14" (click)='sair()'>Sair <i class="fa fa-sign-out" aria-hidden="true"></i> -->
-                <a class=" fs-14 m-1" (click)='sair()'>Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
-                </a>
-            </li>
-        </ul>
+                <li class="nav-item p-3" ><a>
+                    <p class="m-0 font-weight-bold fs-14 sb" routerLink='/contato'>Contato
+                        <!--{{nome}}-->
+                    </p></a>
+                </li>
+                <li class="nav-item p-3" *ngIf="admin()"><a>
+                    <p class="m-0 font-weight-bold fs-14 sb" routerLink='ong-cadastrar'>Cadastrar
+                        <!--{{nome}}-->
+                    </p></a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="col-md-auto">
+            <ul class="navbar-nav m-auto justify-content-end">
+                <li *ngIf='auth.btnSair()'>
+                    <!-- <a class="text-white fs-14" (click)='sair()'>Sair <i class="fa fa-sign-out" aria-hidden="true"></i> -->
+                    <a class=" fs-14 m-1" (click)='sair()'>Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li *ngIf='auth.btnLogin()'>
+                    <!-- <a class="text-white fs-14" (click)='sair()'>Sair <i class="fa fa-sign-out" aria-hidden="true"></i> -->
+                    <a class=" fs-14 m-1" routerLink='/entrar'>Entrar<i class="fa fa-sign-in" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
 
     </div>
 </nav>

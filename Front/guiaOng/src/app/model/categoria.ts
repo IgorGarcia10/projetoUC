@@ -1,7 +1,7 @@
-import { Ong } from "./ong"
+import { UserOng } from "./userOng"
 
 export class Categoria{
     public idCategoria: number
     public nomeCategoria: string
-    public ongbycategoria: Ong[]
+    public ongbycategoria: UserOng[]
 }

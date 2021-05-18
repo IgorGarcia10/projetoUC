@@ -5,3 +5,34 @@ background-color: rgb(26, 153, 111);
 .f-branco{
     color: whitesmoke;
 }
+
+.ico-amarelo{
+    color: rgb(247, 223, 15);
+}
+
+.ico-vermelho{
+    color: rgb(245, 55, 55);
+}
+
+.ico-roxo{
+    color: rgb(216, 86, 216);
+}
+
+.cardcolor{
+    background-color: #ED615A;
+}
+
+.jumbotron{
+    background-color: #5692C7;
+}
+
+.btn-jumbotron{
+    background-color: #eb8e23;
+    color: white;
+}
+
+.jum-contato{
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+}

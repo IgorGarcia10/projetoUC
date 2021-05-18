@@ -18,3 +18,12 @@ a {
 .ml1{
   margin-left: 1rem;
 }
+
+a{
+  text-decoration: none;
+}
+
+.sb:focus , .sb:active{
+  outline:none !important;
+  box-shadow: none !important;
+}

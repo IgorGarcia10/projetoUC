@@ -1,3 +1,5 @@
+<!-- Tela de cadastro do usuario para login -->
+
 <div class="container-fluid">
     <div class="row d-flex align-items-center">
 
@@ -5,12 +7,12 @@
             <div class="row fundo"></div>
         </div>
 
-        <div class="col-md-5 p-0">
+        <div class="col-md-5 p-0 ml-5">
             <div class="row d-flex justify-content-center">
-                <div class="col-md-8">
+                <div class="col-md-9 ml-5">
 
                     <h1 class="text-center mb-3 mt-5 cb">Cadastre-se</h1>
-
+<!--
                     <div class="form-group cb fs">
                         <label for="usuario">Nome</label>
                         <input [(ngModel)]='user.nome' class="form-control mb-2" type="text" id="usuario" placeholder="Seu usuário">
@@ -18,7 +20,9 @@
                     <div class="form-group cb fs">
                         <label for="email">Email</label>
                         <input [(ngModel)]='user.email' class="form-control mb-2" type="email" id="email" placeholder="Seu Email">
-                    </div> -->
+                    </div> 
+
+                  -->
 
                     <!-- inicio do comentario  -->
                     <!-- 
@@ -78,8 +82,9 @@
                       </div> -->
                       <mat-card>
                         <form (submit)="onAdicionarUsuario(clienteForm)" #clienteForm="ngForm">
-                      
+                      <!--
                           <mat-form-field>
+                            
                             <mat-label>Tipo de Pessoa</mat-label>
                             <mat-select required value="tipo" matInput name="tipo" type="text" ngModel #tipo="ngModel">
                               <mat-option required value="Física">Física</mat-option>
@@ -87,13 +92,14 @@
                             </mat-select>
                             <mat-error *ngIf="tipo.invalid">Escolha um tipo de pessoa</mat-error>
                           </mat-form-field>
+                        -->
                           <!-- Nome e data de Nascimento -->
-                          <mat-form-field class="grupo1"> 
+                          <mat-form-field class=""> 
                             <input required minlength="3" type="text" matInput placeholder="Nome Completo" name="nome" ngModel
                               #nome="ngModel" />
                             <mat-error *ngIf="nome.invalid">Nome com no minimo 3 caracteres</mat-error>
                           </mat-form-field>
-                      
+                      <!--
                           <mat-form-field class="grupo2">
                             <mat-label>Data de Nascimento</mat-label>
                             <input required matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" name="dataNascimento" ngModel
@@ -101,8 +107,9 @@
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                           </mat-form-field>
+                        -->
                       
-                          <!-- Numero e CPF -->
+                          <!-- Numero e CPF 
                           <mat-form-field class="grupo1">
                             <input required minlength="11" type="text" matInput placeholder="Telefone" name="fone" ngModel #fone="ngModel" />
                             <mat-error *ngIf="fone.invalid">Digite um telefone válido</mat-error>
@@ -111,28 +118,28 @@
                           <mat-form-field class="grupo2">
                             <input required minlength="11" type="cpf" matInput placeholder="CPF ou CNPJ" name="cpf" ngModel #cpf="ngModel" />
                             <mat-error *ngIf="cpf.invalid">Não é necessario numeros e traços</mat-error>
-                          </mat-form-field>
+                          </mat-form-field> -->
                       
                           <!-- Agrupar email e Confirme seu email -->
-                          <mat-form-field class="grupo1">
+                          <mat-form-field class="">
                             <input required type="text" matInput placeholder="E-mail" name="email" ngModel #email="ngModel" />
                             <mat-error *ngIf="email.invalid">Digite um email válido</mat-error>
                           </mat-form-field>
                       
-                          <mat-form-field class="grupo2">
+                          <mat-form-field class="">
                             <input required type="text" matInput placeholder="Confirme seu E-mail" name="confirmeEmail" ngModel
                               #confirmeEmail="ngModel" />
                             <mat-error *ngIf="email.invalid">Digite um email válido</mat-error>
                           </mat-form-field>
                       
-                          <!-- Campo unico CEP  -->
+                          <!-- Campo unico CEP  
                           <mat-form-field>
                             <input required minlength="5" type="text" matInput placeholder="Digite seu CEP" name="cep" ngModel
                               #cep="ngModel" />
                             <mat-error *ngIf="cep.invalid">Digite seu CEP com 5 digitos</mat-error>
-                          </mat-form-field>
+                          </mat-form-field> -->
                       
-                          <!-- Agrupar Lagradouro e Numero-->
+                          <!-- Agrupar Lagradouro e Numero
                           <mat-form-field class="grupo1">
                             <input required minlength="2" type="text" matInput placeholder="Lagradouro" name="lagradouro" ngModel
                               #lagradouro="ngModel" />
@@ -142,9 +149,9 @@
                           <mat-form-field class="grupo2">
                             <input required minlength="2" type="text" matInput placeholder="Numero" name="numero" ngModel #numero="ngModel" />
                             <mat-error *ngIf="numero.invalid">Digite pelo menos 2 numeros</mat-error>
-                          </mat-form-field>
+                          </mat-form-field> -->
                       
-                          <!-- Agrupar Complemento e Bairro -->
+                          <!-- Agrupar Complemento e Bairro 
                           <mat-form-field class="grupo1">
                             <input type="text" matInput placeholder="Complemento" name="complemento" ngModel #complemento="ngModel" />
                           </mat-form-field>
@@ -152,9 +159,9 @@
                           <mat-form-field class="grupo2"> 
                             <input required minlength="2" type="text" matInput placeholder="Bairro" name="bairro" ngModel #bairro="ngModel" />
                             <mat-error *ngIf="bairro.invalid">Digite com bairro no minimo duas letras</mat-error>
-                          </mat-form-field>
+                          </mat-form-field> -->
                       
-                          <!-- Agrupar UF e Cidade-->
+                          <!-- Agrupar UF e Cidade
                       
                           <mat-form-field class="grupo1">
                             <mat-label>UF</mat-label>
@@ -169,8 +176,8 @@
                           <mat-form-field class="grupo2">
                             <input required minlength="5" type="text" matInput placeholder="Cidade" name="cidade" ngModel #cidade="ngModel" />
                             <mat-error *ngIf="cidade.invalid">Digite um numero</mat-error>
-                          </mat-form-field>
-                      
+                          </mat-form-field> -->
+                        
                           <!-- Agrupar -->
                           <!-- Até aqui SENHA E CONFIRME SUA SENHA-->
                           
@@ -202,7 +209,7 @@
                       
                             <br>
                           
-                          <button class = "button" color="primary" mat-raised-button >
+                          <button class = "button btn-cadastrar"  mat-raised-button >
                             Cadastrar
                           </button>
                         </form>
@@ -210,7 +217,7 @@
 
 
 
-                    <p class="text-center mt-3">Já tem um cadastro<a routerLink='/entrar'>Volte ao Login</a></p>
+                    <p class="text-center mt-3">Já tem um cadastro? <a routerLink='/entrar'>Volte ao Login</a></p>
                 </div>
             </div>
         </div>

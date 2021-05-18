@@ -1,3 +1,5 @@
+<!-- Página Incial -->
+
 <!--Inicio Carousel-->
 <div class="container-fluid p-0">
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
@@ -32,7 +34,7 @@
 
 <!--Inicio Como Funfiona-->
 <!--Testo como funciona e abaixo cards contendo as instruções para os usuarios-->
-<div class="container-fluid p-0">
+<div class="container-fluid p-0" id="comofunciona">
     <div class="row">
         <h2 class="text-center mt-5 mb-4">Como funciona o Guia ONG?</h2>
     </div>
@@ -63,6 +65,20 @@
 <!--Inicio ONGs-->
 <!--Titulo : Algumas ONGs ou Conheça algumas ONGs e abaixo, 3 ou 4 cards contendo informações de algumas ongs com um botão bem grande de DOAR
 abaixo botão ver mais (direciona para todas as ongs)-->
+<div class="container-fluid mt-3">
+    <div class="row mb-5">
+        <h2 class="d-flex align-items-center justify-content-around">Conheça algumas de nossas ONGs</h2>
+    </div>
+    <div class="row d-flex align-items-center justify-content-around">
+        <div class="card text-white cardcolor mb-3" style="width: 18rem; height: 18rem;" *ngFor="let item of ong">
+            <div class="card-body text-center">
+                <h2 class="card-title mb-4">{{item.nome}}</h2>
+                <p class="card-text">{{item.descricao}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--Fim ONGs-->
 
 <!--Inicio Faixa Dados-->
@@ -83,12 +99,22 @@ abaixo botão ver mais (direciona para todas as ongs)-->
         </div>
     </div>
 </div>
-
-
 <!--Fim Faixa Dados-->
 
 
 
 <!--Inicio Resumo Sobre Nós-->
 <!--Breve resumo sobre o projeto e talvez algumas fotos sobre o que fazemos e um botão  que direciona para o Sobre Nós-->
+<div class="container-fluid mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="jumbotron">
+                <h2 class="display-4 text-white mb-5">Conheca um pouco mais sobre a gente!</h2>
+                <p class="lead text-white">O Guia ONG nasceu com o intuito de dar visibilidade àqueles que merecem e que por algum motivo não tem o acesso ou não conseguiram dar uma maior visibilidade para seu super projeto.</p>
+                <p class="text-white">Em caso de dúvidas entre em contato através do <a class="jum-contato" routerLink='/contato'>Contato</a></p>
+                <a class="btn btn-lg btn-jumbotron mt-4 justify-content-center d-flex align-items-center" role="button" routerLink='/sobre'>Saiba mais!</a>
+            </div>
+        </div>
+    </div>
+</div>
 <!--Fim Resumo Sobre Nós-->
