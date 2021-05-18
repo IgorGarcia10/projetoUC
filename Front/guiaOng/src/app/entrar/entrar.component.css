@@ -1,7 +1,7 @@
 #img-bg {
   background-image: url('../../assets/img/entrar.jpg');
-  height: 39.2rem;
-  width: 40rem;
+  height: 40rem;
+  min-width: 33rem;
 
   background-position: center;
   background-repeat: no-repeat;
@@ -19,7 +19,7 @@
 
 .fundo {
   background-color: #59B9B3;
-  height: 39.2rem;
-  width: 40rem;
+  height: 40rem;
+  min-width: 33rem;
   opacity: 0.5;
 }

@@ -11,14 +11,13 @@
             </li>
 
             <li class="nav-item pl-3">
-                <p class="m-0 font-weight-bold fs-14 " id="nomeUser">Olá, Nome User
-                    <!--{{nome}}-->
-                </p>
+                <p class="m-0 font-weight-bold fs-14 " *ngIf="nome != '' " id="nomeUser">{{nome}}</p>
+                <p class="m-0 font-weight-bold fs-14 " *ngIf="nome == '' " id="nomeUser">Olá Doador!</p>
             </li>
             <li class="nav-item pl-3">
                 <!--<a class="fs-14 text-white" [routerLink]="['/user-edit', id]"> -->
                 <a class="fs-14">
-                    <i class="fa fa-pencil-square-o ml1" aria-hidden="true"></i>
+                    <i class="fa fa-pencil-square-o ml1" *ngIf="nome !='' " aria-hidden="true"></i>
                 </a>
             </li>
         </ul>
@@ -58,7 +57,7 @@
         <ul class="navbar-nav m-auto">
             <li>
                 <!-- <a class="text-white fs-14" (click)='sair()'>Sair <i class="fa fa-sign-out" aria-hidden="true"></i> -->
-                <a class=" fs-14 m-1">Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <a class=" fs-14 m-1" (click)='sair()'>Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
                 </a>
             </li>
         </ul>
