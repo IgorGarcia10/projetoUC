@@ -27,7 +27,8 @@ export class CategoriaInserirComponent implements OnInit {
 
     this.categoriaService.adicionarCategorias(
       form.value.nome
-    )
+    );
+    form.resetForm();
 
     // const categoria: Categoria = {
     //   nome: form.value.nome
