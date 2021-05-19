@@ -30,11 +30,13 @@ import { OngsComponent } from './ongs/ongs.component';
 import { OngIndividualComponent } from './ong-individual/ong-individual.component';
 import { DoacoesComponent } from './doacoes/doacoes.component';
 import { ContaComponent } from './conta/conta.component';
+
+
+import { UsuarioService } from './service/usuario.service';
+import { CategoriaService } from './service/categoria.service';
 import { CategoriaInserirComponent } from './categoria/categoria-inserir/categoria-inserir.component';
 import { CategoriaListarComponent } from './categoria/categoria-listar/categoria-listar.component';
 
-import { UsuarioService } from './service/usuario.service';
-import { CategoriaService } from './service/categoria.service'
 
 
 
