@@ -20,12 +20,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { UsuarioService } from './service/usuario.service';
 import { ContatoComponent } from './contato/contato.component';
 import { OngsComponent } from './ongs/ongs.component';
 import { OngIndividualComponent } from './ong-individual/ong-individual.component';
@@ -33,6 +32,9 @@ import { DoacoesComponent } from './doacoes/doacoes.component';
 import { ContaComponent } from './conta/conta.component';
 import { CategoriaInserirComponent } from './categoria/categoria-inserir/categoria-inserir.component';
 import { CategoriaListarComponent } from './categoria/categoria-listar/categoria-listar.component';
+
+import { UsuarioService } from './service/usuario.service';
+import { CategoriaService } from './service/categoria.service'
 
 
 
@@ -60,22 +62,23 @@ import { CategoriaListarComponent } from './categoria/categoria-listar/categoria
     HttpClientModule,
     FormsModule,
     NoopAnimationsModule,
-    MatInputModule, 
-    MatCardModule, 
-    MatButtonModule, 
-    MatToolbarModule, 
-    MatExpansionModule, 
-    MatFormFieldModule, 
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    MatFormFieldModule,
     MatSelectModule,
     MatButtonModule,
     MatIconModule,
-    MatDatepickerModule, 
+    MatDatepickerModule,
     MatNativeDateModule,
   ],
   providers: [
     UsuarioService,
-  
-],
+    CategoriaService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

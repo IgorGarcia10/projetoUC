@@ -1,7 +1,6 @@
-import { UserOng } from "./userOng"
+// import { UserOng } from "./userOng"
 
-export class Categoria{
-    public idCategoria: number
-    public nomeCategoria: string
-    public ongbycategoria: UserOng[]
+export interface Categoria{
+    nome: string
+    // ongbycategoria: UserOng[]
 }

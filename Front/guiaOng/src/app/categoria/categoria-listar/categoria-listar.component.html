@@ -1,1 +1,8 @@
-<p>categoria-listar works!</p>
+<mat-accordion *ngIf="categorias.length>0">
+    <mat-expansion-panel *ngFor="let categoria of categorias">
+        <mat-expansion-panel-header>Nome: {{categoria.nome}}</mat-expansion-panel-header>
+    </mat-expansion-panel>
+</mat-accordion>
+<p class="mat-body-1" style="text-align:center" *ngIf="categorias.length <=0">
+    Você ainda não cadastrou nenhuma categoria :(
+</p>
