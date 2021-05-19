@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
-import { CadastroCategoriaComponent } from './cadastro-categoria/cadastro-categoria.component';
 import { ContaComponent } from './conta/conta.component';
 import { ContatoComponent } from './contato/contato.component';
 import { DoacoesComponent } from './doacoes/doacoes.component';
@@ -25,8 +24,7 @@ const routes: Routes = [
   {path: 'ongs', component: OngsComponent},
   {path: 'doar', component: OngIndividualComponent},
   {path:'doacoes', component: DoacoesComponent},
-  {path: 'conta', component: ContaComponent},
-  {path: 'cadastro-categoria', component: CadastroCategoriaComponent}
+  {path: 'conta', component: ContaComponent}
 
 ];
 

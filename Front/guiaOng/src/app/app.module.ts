@@ -31,6 +31,8 @@ import { OngsComponent } from './ongs/ongs.component';
 import { OngIndividualComponent } from './ong-individual/ong-individual.component';
 import { DoacoesComponent } from './doacoes/doacoes.component';
 import { ContaComponent } from './conta/conta.component';
+import { CategoriaInserirComponent } from './categoria/categoria-inserir/categoria-inserir.component';
+import { CategoriaListarComponent } from './categoria/categoria-listar/categoria-listar.component';
 
 
 
@@ -48,7 +50,9 @@ import { ContaComponent } from './conta/conta.component';
     OngsComponent,
     OngIndividualComponent,
     DoacoesComponent,
-    ContaComponent
+    ContaComponent,
+    CategoriaInserirComponent,
+    CategoriaListarComponent
   ],
   imports: [
     BrowserModule,
