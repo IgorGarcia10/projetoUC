@@ -31,7 +31,7 @@ import { OngsComponent } from './ongs/ongs.component';
 import { OngIndividualComponent } from './ong-individual/ong-individual.component';
 import { DoacoesComponent } from './doacoes/doacoes.component';
 import { ContaComponent } from './conta/conta.component';
-import { CadastroCategoriaComponent } from './cadastro-categoria/cadastro-categoria.component';
+
 
 
 @NgModule({
@@ -48,8 +48,7 @@ import { CadastroCategoriaComponent } from './cadastro-categoria/cadastro-catego
     OngsComponent,
     OngIndividualComponent,
     DoacoesComponent,
-    ContaComponent,
-    CadastroCategoriaComponent
+    ContaComponent
   ],
   imports: [
     BrowserModule,
