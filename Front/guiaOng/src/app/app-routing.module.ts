@@ -25,8 +25,7 @@ const routes: Routes = [
   {path: 'ongs', component: OngsComponent},
   {path: 'doar', component: OngIndividualComponent},
   {path:'doacoes', component: DoacoesComponent},
-  {path: 'conta', component: ContaComponent},
-  {path: 'cadastro-categoria', component: CadastroCategoriaComponent}
+  {path: 'conta', component: ContaComponent}
 
 ];
 
