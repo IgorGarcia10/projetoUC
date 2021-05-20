@@ -75,11 +75,11 @@ export class UsuarioInserirComponent {
     }
 
     this.usuarioService.adicionarUsuario(
-      form.value.tipo,
+      //form.value.tipo,
       form.value.nome,
       form.value.fone,
       form.value.email,
-      form.value.cpf,
+      /* form.value.cpf,
       form.value.senha,
       form.value.cep,
       form.value.lagradouro,
@@ -88,7 +88,7 @@ export class UsuarioInserirComponent {
       form.value.bairro,
       form.value.uf,
       form.value.cidade,
-      form.value.dataNascimento,
+      form.value.dataNascimento, */
     );
     form.resetForm();
 

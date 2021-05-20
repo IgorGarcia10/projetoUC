@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../model/user';
 import { AuthService } from '../service/auth.service';
-import { NgForm } from '@angular/forms';
+//import { FormGroup,NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { UsuarioService } from '../service/usuario.service';
 
 interface Uf {
@@ -16,16 +17,14 @@ interface Uf {
   styleUrls: ['./cadastrar.component.css']
 })
 export class CadastrarComponent implements OnInit {
-
+  form: FormGroup;
   minDate: Date;
   maxDate: Date;
   hide = true;
-
-
+  private modo: string = "criar";
   user: User = new User
   confirmarSenha: string
-  // categoriaOng: boolean
-
+  
   constructor(public usuarioService: UsuarioService,
     private authService: AuthService,
     private router: Router
@@ -35,40 +34,59 @@ export class CadastrarComponent implements OnInit {
     this.minDate = new Date(currentYear - 120, 0, 1);
     this.maxDate = new Date(currentYear - 18, 1, 1)
 
-   }
+  }
 
-   ufs: Uf[] = [
-    {value:  'AC', viewValue: 'Acre'},
-{value:  'AL', viewValue: 'Alagoas'},
-{value:  'AP', viewValue: 'Amapá'},
-{value:  'AM', viewValue: 'Amazonas'},
-{value:  'BA', viewValue: 'Bahia'},
-{value:  'CE', viewValue: 'Ceará'},
-{value:  'DF', viewValue: 'Distrito Federal'},
-{value:  'ES', viewValue: 'Espírito Santo'},
-{value:  'GO', viewValue: 'Goiás'},
-{value:  'MA', viewValue: 'Maranhão'},
-{value:  'MT', viewValue: 'Mato Grosso'},
-{value:  'MS', viewValue: 'Mato Grosso do Sul'},
-{value:  'MG', viewValue: 'Minas Gerais'},
-{value:  'PA', viewValue: 'Pará'},
-{value:  'PB', viewValue: 'Paraíba'},
-{value:  'PR', viewValue: 'Paraná'},
-{value:  'PE', viewValue: 'Pernambuco'},
-{value:  'PI', viewValue: 'Piauí'},
-{value:  'RJ', viewValue: 'Rio de Janeiro'},
-{value:  'RN', viewValue: 'Rio Grande do Norte'},
-{value:  'RS', viewValue: 'Rio Grande do Sul'},
-{value:  'RO', viewValue: 'Rondônia'},
-{value:  'RR', viewValue: 'Roraima'},
-{value:  'SC', viewValue: 'Santa Catarina'},
-{value:  'SP', viewValue: 'São Paulo'},
-{value:  'SE', viewValue: 'Sergipe'},
-{value:  'TO', viewValue: 'Tocantins'},    
+  ufs: Uf[] = [
+    { value: 'AC', viewValue: 'Acre' },
+    { value: 'AL', viewValue: 'Alagoas' },
+    { value: 'AP', viewValue: 'Amapá' },
+    { value: 'AM', viewValue: 'Amazonas' },
+    { value: 'BA', viewValue: 'Bahia' },
+    { value: 'CE', viewValue: 'Ceará' },
+    { value: 'DF', viewValue: 'Distrito Federal' },
+    { value: 'ES', viewValue: 'Espírito Santo' },
+    { value: 'GO', viewValue: 'Goiás' },
+    { value: 'MA', viewValue: 'Maranhão' },
+    { value: 'MT', viewValue: 'Mato Grosso' },
+    { value: 'MS', viewValue: 'Mato Grosso do Sul' },
+    { value: 'MG', viewValue: 'Minas Gerais' },
+    { value: 'PA', viewValue: 'Pará' },
+    { value: 'PB', viewValue: 'Paraíba' },
+    { value: 'PR', viewValue: 'Paraná' },
+    { value: 'PE', viewValue: 'Pernambuco' },
+    { value: 'PI', viewValue: 'Piauí' },
+    { value: 'RJ', viewValue: 'Rio de Janeiro' },
+    { value: 'RN', viewValue: 'Rio Grande do Norte' },
+    { value: 'RS', viewValue: 'Rio Grande do Sul' },
+    { value: 'RO', viewValue: 'Rondônia' },
+    { value: 'RR', viewValue: 'Roraima' },
+    { value: 'SC', viewValue: 'Santa Catarina' },
+    { value: 'SP', viewValue: 'São Paulo' },
+    { value: 'SE', viewValue: 'Sergipe' },
+    { value: 'TO', viewValue: 'Tocantins' },
   ];
+  
 
   ngOnInit() {
     window.scroll(0, 125)
+    this.form = new FormGroup({
+
+      nome: new FormControl(null, {
+        validators: [Validators.required, Validators.minLength(3)]
+      }),
+      email: new FormControl(null, {
+        validators: [Validators.required, Validators.email]
+      }),
+      confirmeEmail: new FormControl(null, {
+        validators: [Validators.required, Validators.email]
+      }),
+      senha: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      repetirSenha: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+    })
   }
 
   data = {
@@ -76,53 +94,57 @@ export class CadastrarComponent implements OnInit {
     repetirSenha: '',
   };
 
-  onAdicionarUsuario(form: NgForm) {
+  /*  onAdicionarUsuario(form: NgForm) {
+     
+     if (this.form.invalid){
+       return;
+     }
+     if (this.modo === "criar"){
+     this.usuarioService.adicionarUsuario(
+       this.form.value.tipo,
+       this.form.value.nome,
+       this.form.value.fone,
+       this.form.value.email,
+       this.form.value.cpf,
+       this.form.value.senha,
+       this.form.value.cep,
+       this.form.value.lagradouro,
+       this.form.value.numero,
+       this.form.value.complemento,
+       this.form.value.bairro,
+       this.form.value.uf,
+       this.form.value.cidade,
+       this.form.value.dataNascimento,
+     );
+     form.resetForm();
+   }
+ 
+   }
+  */
 
-    if (form.invalid) {
+   onAdicionarUsuario() {
+    if (this.form.invalid) {
       return;
     }
-
-    this.usuarioService.adicionarUsuario(
-      form.value.tipo,
-      form.value.nome,
-      form.value.fone,
-      form.value.email,
-      form.value.cpf,
-      form.value.senha,
-      form.value.cep,
-      form.value.lagradouro,
-      form.value.numero,
-      form.value.complemento,
-      form.value.bairro,
-      form.value.uf,
-      form.value.cidade,
-      form.value.dataNascimento,
-    );
-    form.resetForm();
-
-
-  }
-
-  confirmaSenha(event: any) {
-    this.confirmarSenha = event.target.value
-  }
-
-  // tipoOng(event: any) {
-  //   this.categoriaOng = event.target.value
-  // }
-
-  cadastrar() {
-    // this.user.useradmin = this.categoriaOng
-
-    if (this.user.senha != this.confirmarSenha) {
-      alert('As senhas não conferem')
-    } else {
-      this.authService.cadastrar(this.user).subscribe((resp: User) => {
-        this.user = resp
-        this.router.navigate(['/entrar'])
-        alert('Usuário cadastrado com sucesso!')
-      })
+    if (this.modo === "criar") {
+      this.usuarioService.adicionarUsuario(
+      //this.form.value.tipo,
+      this.form.value.nome,
+      //this.form.value.fone,
+      this.form.value.email,
+      //this.form.value.cpf,
+      this.form.value.senha,
+      //this.form.value.cep,
+      //this.form.value.lagradouro,
+      //this.form.value.numero,
+      //this.form.value.complemento,
+      //this.form.value.bairro,
+      //this.form.value.uf,
+      //this.form.value.cidade,
+      //this.form.value.dataNascimento,
+      );
     }
-  }
+    this.form.reset();
+  } 
 
 }
