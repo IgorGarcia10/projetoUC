@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from './model/usuario.model';
 
 @Component({
@@ -7,5 +8,7 @@ import { Usuario } from './model/usuario.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(public router: Router) {}
   title = 'guiaOng';
 }
