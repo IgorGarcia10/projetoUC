@@ -1,0 +1,9 @@
+:host {
+  margin-top: 1rem;
+  display: block;
+}
+
+mat-accordion {
+  width: 100%;
+  margin: auto;
+}
