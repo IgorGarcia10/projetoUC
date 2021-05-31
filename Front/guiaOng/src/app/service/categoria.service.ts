@@ -3,6 +3,7 @@ import { Categoria } from '../model/categoria';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class CategoriaService {
   private listaCategoriaAtualizada = new Subject<Categoria[]>()
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private router: Router
   ) { }
 
   getCategoria(idCategoria: string){
@@ -56,7 +58,8 @@ export class CategoriaService {
           console.log(dados.mensagem);
           categoria.id = dados.id;
           this.categorias.push(categoria);
-          this.listaCategoriaAtualizada.next([...this.categorias])
+          this.listaCategoriaAtualizada.next([...this.categorias]);
+          this.router.navigate(['/categoria-inserir']);
         }
       )
   }
@@ -81,6 +84,7 @@ export class CategoriaService {
       copia[indice] = categoria;
       this.categorias = copia;
       this.listaCategoriaAtualizada.next([...this.categorias]);
+      this.router.navigate(['/categoria-inserir']);
     }));
   }
 
