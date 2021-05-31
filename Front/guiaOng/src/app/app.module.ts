@@ -36,6 +36,7 @@ import { UsuarioService } from './service/usuario.service';
 import { CategoriaService } from './service/categoria.service';
 import { CategoriaInserirComponent } from './categoria/categoria-inserir/categoria-inserir.component';
 import { CategoriaListarComponent } from './categoria/categoria-listar/categoria-listar.component';
+import { AreaAdmComponent } from './area-adm/area-adm.component';
 
 
 
@@ -56,7 +57,8 @@ import { CategoriaListarComponent } from './categoria/categoria-listar/categoria
     DoacoesComponent,
     ContaComponent,
     CategoriaInserirComponent,
-    CategoriaListarComponent
+    CategoriaListarComponent,
+    AreaAdmComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AreaAdmComponent } from './area-adm/area-adm.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { CategoriaInserirComponent } from './categoria/categoria-inserir/categoria-inserir.component';
 import { CategoriaListarComponent } from './categoria/categoria-listar/categoria-listar.component';
@@ -20,12 +21,13 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'entrar', component: EntrarComponent},
   {path: 'cadastrar', component: CadastrarComponent},
+  {path: 'area-adm', component: AreaAdmComponent},
   {path: 'sobre', component: SobreComponent},
   {path: 'usuario-inserir', component: UsuarioInserirComponent},
   {path: 'contato', component: ContatoComponent},
   {path: 'ongs', component: OngsComponent},
   {path: 'doar', component: OngIndividualComponent},
-  {path:'doacoes', component: DoacoesComponent},
+  {path: 'doacoes', component: DoacoesComponent},
   {path: 'conta', component: ContaComponent},
   {path: 'categoria-inserir', component: CategoriaInserirComponent},
   {path: 'categoria-editar/:idCategoria', component: CategoriaInserirComponent},
