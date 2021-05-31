@@ -11,14 +11,14 @@ import { CategoriaService } from 'src/app/service/categoria.service';
 export class CategoriaListarComponent implements OnInit, OnDestroy {
 
   categorias: Categoria[] = [];
-  private categoriasSubscription: Subscription;
+  public categoriasSubscription: Subscription;
 
   constructor(
     public categoriaService: CategoriaService
   ) { }
 
   ngOnInit(): void {
-    this.categorias = this.categoriaService.getCategorias();
+    this.categoriaService.getCategorias();
 
     //inscrevendo o componente cliente lista como observador do listaclienteatualizada observavel
     this.categoriasSubscription = this.categoriaService
@@ -32,5 +32,10 @@ export class CategoriaListarComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void{
     this.categoriasSubscription.unsubscribe();
   }
+
+  onDelete(id: string): void {
+    this.categoriaService.removerCategoria(id);
+  }
+
 
 }

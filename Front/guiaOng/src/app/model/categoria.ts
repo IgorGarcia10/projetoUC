@@ -1,6 +1,6 @@
-// import { UserOng } from "./userOng"
 
 export interface Categoria{
+    id: string,
     nome: string
-    // ongbycategoria: UserOng[]
+    // ongbycategoria: Ong[]
 }

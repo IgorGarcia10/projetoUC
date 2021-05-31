@@ -75,6 +75,7 @@ import { CategoriaListarComponent } from './categoria/categoria-listar/categoria
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    HttpClientModule
   ],
   providers: [
     UsuarioService,
