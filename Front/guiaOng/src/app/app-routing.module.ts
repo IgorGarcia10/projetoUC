@@ -28,6 +28,7 @@ const routes: Routes = [
   {path:'doacoes', component: DoacoesComponent},
   {path: 'conta', component: ContaComponent},
   {path: 'categoria-inserir', component: CategoriaInserirComponent},
+  {path: 'categoria-editar/:idCategoria', component: CategoriaInserirComponent},
   {path: 'categoria-listar', component: CategoriaListarComponent}
 
 ];

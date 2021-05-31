@@ -23,7 +23,7 @@ export class CadastrarComponent implements OnInit {
 
 
   user: User = new User
-  confirmarSenha: string
+  confirmarSenha: string | any;
   // categoriaOng: boolean
 
   constructor(public usuarioService: UsuarioService,
