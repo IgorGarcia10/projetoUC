@@ -12,8 +12,8 @@
         <p>Endereço: {{ong.endereco}}</p>
         <p>Descrição: {{ong.descricao}}</p>
         <mat-action-row>
-            <button mat-button color="primary">EDITAR</button>
-            <button mat-button color="warn">REMOVER</button>
+            <button mat-button color="primary" [routerLink]="['/ong-editar', ong.id]">EDITAR</button>
+            <button mat-button color="warn" (click)="onDelete(ong.id)">REMOVER</button>
         </mat-action-row>
    
     </mat-expansion-panel>

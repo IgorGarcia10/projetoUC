@@ -40,7 +40,8 @@ export class OngListaComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     window.scroll(0,0)
-    this.ongs = this.ongService.getOngs();
+
+    this.ongService.getOngs();
 
     this.ongsSubscription = this.ongService
     .getListaOngsAtualizaObservable()
@@ -53,6 +54,11 @@ export class OngListaComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void{
     this.ongsSubscription.unsubscribe();
+  }
+
+
+  onDelete(id: string): void{
+    this.ongService.removerOng(id);
   }
 
 }
