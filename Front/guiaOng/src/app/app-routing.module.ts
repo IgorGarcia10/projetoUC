@@ -10,6 +10,8 @@ import { DoacoesComponent } from './doacoes/doacoes.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { HomeComponent } from './home/home.component';
 import { OngIndividualComponent } from './ong-individual/ong-individual.component';
+import { OngInserirComponent } from './ong/ong-inserir/ong-inserir.component';
+import { OngListaComponent } from './ong/ong-lista/ong-lista.component';
 import { OngsComponent } from './ongs/ongs.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { UsuarioInserirComponent } from './usuario-inserir/usuario-inserir.component';
@@ -31,7 +33,9 @@ const routes: Routes = [
   {path: 'conta', component: ContaComponent},
   {path: 'categoria-inserir', component: CategoriaInserirComponent},
   {path: 'categoria-editar/:idCategoria', component: CategoriaInserirComponent},
-  {path: 'categoria-listar', component: CategoriaListarComponent}
+  {path: 'categoria-listar', component: CategoriaListarComponent},
+  {path: 'ong-inserir', component: OngInserirComponent},
+  {path: 'ong-lista', component: OngListaComponent}
 
 ];
 

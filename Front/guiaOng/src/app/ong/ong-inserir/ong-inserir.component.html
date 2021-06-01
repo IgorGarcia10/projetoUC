@@ -1,0 +1,48 @@
+<div class="container-fluid mt-5">
+    <div class="row estilo justify-content-center">
+        <div class="col-md-8">
+            <mat-card>
+                <form (submit)="onSalvarOng(ongForm)" #ongForm="ngForm">
+                    <mat-form-field class="grupo1">
+                        <input required minlength="4" type="text" matInput placeholder="nome" name="nome" ngModel />
+                        <mat-error> Digite um Nome Válido</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="grupo2">
+                        <input required email type="text" matInput placeholder="email" name="email" ngModel />
+                        <mat-error> Digite um Email Válido</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="grupo1">
+                        <input required type="text" matInput placeholder="cnpj" name="cnpj" ngModel />
+                        <mat-error> Digite um CNPJ Válido</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="grupo2">
+                        <input type="text" matInput placeholder="telefone" name="telefone" ngModel />
+                        <mat-error> Digite um telefone válido</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input required type="text" matInput placeholder="endereço" name="endereco" ngModel />
+                        <mat-error> Digite um endereço válido</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input required type="text" matInput placeholder="categoria" name="categoria" ngModel />
+                        <mat-error> Digite uma categoria</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input required type="text" matInput placeholder="descrição" name="descricao" ngModel />
+                        <mat-error> Digite uma descrição válida</mat-error>
+                    </mat-form-field>
+
+                    <button class="w-100 btn-salvar" mat-raised-button>Salvar Ong</button>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mb-4 mt-2">
+    <div class="row estilo justify-content-center">
+        <div class="col-md-8">
+            <app-ong-lista></app-ong-lista>
+        </div>
+    </div>
+</div>

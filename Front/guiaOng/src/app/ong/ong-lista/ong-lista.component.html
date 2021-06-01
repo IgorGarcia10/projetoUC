@@ -1,0 +1,25 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let ong of ongs">
+        <mat-expansion-panel-header>{{ong.nome}}</mat-expansion-panel-header>
+        <div class="row">
+            <div class="col-md-6"><p>Categoria: {{ong.categoria}}</p></div>
+            <div class="col-md-6"><p>CNPJ: {{ong.cnpj}}</p></div>
+        </div>   
+        <div class="row">
+            <div class="col-md-6"> <p>Email: {{ong.email}}</p></div>
+            <div class="col-md-6"> <p>Telefone: {{ong.telefone}}</p></div>
+        </div>
+        <p>Endereço: {{ong.endereco}}</p>
+        <p>Descrição: {{ong.descricao}}</p>
+        <mat-action-row>
+            <button mat-button color="primary">EDITAR</button>
+            <button mat-button color="warn">REMOVER</button>
+        </mat-action-row>
+   
+    </mat-expansion-panel>
+</mat-accordion>
+
+<p *ngIf="ongs.length <= 0" style="text-align: center;" >
+    Nenhuma Ong cadastrado :(
+</p>
+

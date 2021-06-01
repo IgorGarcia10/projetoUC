@@ -8,7 +8,7 @@
                     <input required minlength="4"  type="text" matInput placeholder="Digite uma nova categoria" name="nome" [ngModel]="categoria?.nome" ngModel #nome="ngModel"/>
                     <mat-error *ngIf="nome.invalid">Digite um nome válido</mat-error>
                 </mat-form-field>
-                <button color='primary' mat-raised-button>Salvar Categoria</button>
+                <button class = "w-100 btn-salvar" mat-raised-button>Salvar Categoria</button>
             </form>
             </mat-card>
         </div>

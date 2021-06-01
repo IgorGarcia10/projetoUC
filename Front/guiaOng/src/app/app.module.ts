@@ -37,6 +37,9 @@ import { CategoriaService } from './service/categoria.service';
 import { CategoriaInserirComponent } from './categoria/categoria-inserir/categoria-inserir.component';
 import { CategoriaListarComponent } from './categoria/categoria-listar/categoria-listar.component';
 import { AreaAdmComponent } from './area-adm/area-adm.component';
+import { OngInserirComponent } from './ong/ong-inserir/ong-inserir.component';
+import { OngListaComponent } from './ong/ong-lista/ong-lista.component';
+import { OngService } from './service/ong.service';
 
 
 
@@ -58,7 +61,9 @@ import { AreaAdmComponent } from './area-adm/area-adm.component';
     ContaComponent,
     CategoriaInserirComponent,
     CategoriaListarComponent,
-    AreaAdmComponent
+    AreaAdmComponent,
+    OngInserirComponent,
+    OngListaComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +86,8 @@ import { AreaAdmComponent } from './area-adm/area-adm.component';
   ],
   providers: [
     UsuarioService,
-    CategoriaService
+    CategoriaService,
+    OngService
 
   ],
   bootstrap: [AppComponent]
