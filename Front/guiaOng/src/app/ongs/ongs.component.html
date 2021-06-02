@@ -1,1 +1,18 @@
 <!-- Tela onde mostrará todas as ongs cadastradas no site -->
+<div class="container-fluid mt-3">
+    <div class="row mb-5" style="background-color: rgb(226, 116, 43);">
+        <h2 class="d-flex align-items-center text-white justify-content-around mt-5 mb-5" >Conheça algumas de nossas ONGs</h2>
+    </div>
+
+    <div class="row d-flex align-items-center justify-content-around">
+
+        <div class="card cardcolor mb-4 mt-3" style="width: 18rem; height: 15rem;" [routerLink]="['/ong', ong.id]" *ngFor="let ong of ongs">
+            <div class="card-body text-center">
+                <h2 class="card-title mt-5">{{ong.nome}}</h2>
+
+                <!-- <button class = "w-100 btn-doar" mat-raised-button>Conheça Mais</button> -->
+            </div>
+        </div>
+
+    </div>
+</div>

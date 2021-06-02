@@ -9,6 +9,12 @@
             <div class="col-md-6"> <p>Email: {{ong.email}}</p></div>
             <div class="col-md-6"> <p>Telefone: {{ong.telefone}}</p></div>
         </div>
+        <div class="row">
+            <div class="col-md-6" *ngIf="ong.foto !== null  "> <p>Foto: Possui Foto</p></div>
+            <div class="col-md-6" *ngIf="ong.qrcode !== null "> <p>QRCODE: Possui QRCODE </p></div>
+            <div class="col-md-6" *ngIf="ong.foto == null "> <p>Foto: Não Possui Foto</p></div>
+            <div class="col-md-6" *ngIf="ong.qrcode == null "> <p>QRCODE: Não Possui QRCODE </p></div>
+        </div>
         <p>Endereço: {{ong.endereco}}</p>
         <p>Descrição: {{ong.descricao}}</p>
         <mat-action-row>

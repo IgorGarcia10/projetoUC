@@ -20,7 +20,7 @@ export class OngService {
 
   getOng(idOng: string){
     // return { ...this.ongs.find((ong) => ong.id === idOng)};
-    return this.httpClient.get<{_id: string, nome: string, cnpj: string, email: string, telefone: string, endereco: string, categoria: string, descricao: string}>(
+    return this.httpClient.get<{_id: string, nome: string, cnpj: string, email: string, telefone: string, endereco: string, foto: string, qrcode: string, categoria: string, descricao: string}>(
       `http://localhost:3000/api/ongs/${idOng}`
     );
   }
@@ -33,7 +33,7 @@ export class OngService {
     )
       .pipe(
         map((dados) => {
-          return dados.ongs.map((ong: { _id: any; nome: any; cnpj: any; email: any; telefone: any; endereco: any; categoria: any; descricao: any; }) => {
+          return dados.ongs.map((ong: { _id: any; nome: any; cnpj: any; email: any; telefone: any; endereco: any; foto: any; qrcode: any; categoria: any; descricao: any; }) => {
             return {
               id: ong._id,
               nome: ong.nome,
@@ -41,6 +41,8 @@ export class OngService {
               email: ong.email,
               telefone: ong.telefone,
               endereco: ong.endereco,
+              foto: ong.foto,
+              qrcode: ong.qrcode,
               categoria: ong.categoria,
               descricao: ong.descricao
             }
@@ -59,7 +61,7 @@ export class OngService {
     return this.listaOngsAtualizada.asObservable();
   }
 
-  adicionarOng(nome: string, cnpj: string, email: string, telefone: string, endereco: string, categoria: string, descricao: string) {
+  adicionarOng(nome: string, cnpj: string, email: string, telefone: string, endereco: string,foto:string, qrcode: string, categoria: string, descricao: string) {
     const ong: Ong = {
       id: "",
       nome: nome,
@@ -67,6 +69,8 @@ export class OngService {
       email: email,
       telefone: telefone,
       endereco: endereco,
+      foto: foto,
+      qrcode: qrcode,
       categoria: categoria,
       descricao: descricao
     }
@@ -97,8 +101,8 @@ export class OngService {
     });
   }
 
-  atualizarOng(id: string, nome: string, cnpj: string, email: string, telefone: string, endereco: string, categoria: string, descricao: string){
-    const ong: Ong = {id, nome, cnpj, email, telefone, endereco, categoria, descricao};
+  atualizarOng(id: string, nome: string, cnpj: string, email: string, telefone: string, endereco: string, foto: string, qrcode:string, categoria: string, descricao: string){
+    const ong: Ong = {id, nome, cnpj, email, telefone, endereco, foto, qrcode, categoria, descricao};
     this.httpClient.put(`http://localhost:3000/api/ongs/${id}`, ong)
     .subscribe((res => {
       const copia = [...this.ongs];

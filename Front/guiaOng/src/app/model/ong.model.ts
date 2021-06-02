@@ -5,6 +5,8 @@ export interface Ong {
     email: string,
     telefone: string,
     endereco: string,
+    foto: string,
+    qrcode: string,
     categoria: string,
     descricao: string
 

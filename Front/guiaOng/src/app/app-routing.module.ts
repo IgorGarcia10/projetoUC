@@ -36,7 +36,8 @@ const routes: Routes = [
   {path: 'categoria-listar', component: CategoriaListarComponent},
   {path: 'ong-inserir', component: OngInserirComponent},
   {path: 'ong-lista', component: OngListaComponent},
-  {path: 'ong-editar/:idOng', component: OngInserirComponent}
+  {path: 'ong-editar/:idOng', component: OngInserirComponent},
+  {path: 'ong/:idOng', component: OngIndividualComponent}
 
 ];
 

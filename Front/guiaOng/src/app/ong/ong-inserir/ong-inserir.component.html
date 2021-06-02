@@ -30,6 +30,21 @@
                         <mat-error> Digite um endereço válido</mat-error>
                     </mat-form-field>
 
+                    <mat-form-field class="grupo1">
+                        <input  type="text" matInput placeholder="linkFoto1" name="foto" [ngModel]="ong?.foto" ngModel />
+                        <mat-error> Digite um link válido</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="grupo2">
+                        <input  type="text" matInput placeholder="link foto QRcode" name="qrcode" [ngModel]="ong?.qrcode" ngModel />
+                        <mat-error> Digite um link válido</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input required type="text" matInput placeholder="Descrição" name="descricao" [ngModel]="ong?.descricao" ngModel />
+                        <mat-error> Digite uma descrição válida</mat-error>
+                    </mat-form-field>
+
                     <mat-form-field appearance="fill">
                         <mat-label>Selecione uma Categoria</mat-label>
                         <mat-select required type="text" name="categoria" [ngModel]="ong?.categoria" ngModel >
@@ -39,11 +54,6 @@
                             </mat-option>
                         </mat-select>
                         <mat-error> Selecione uma categoria</mat-error>
-                    </mat-form-field>
-
-                    <mat-form-field>
-                        <input required type="text" matInput placeholder="descrição" name="descricao" [ngModel]="ong?.descricao" ngModel />
-                        <mat-error> Digite uma descrição válida</mat-error>
                     </mat-form-field>
 
                     <button class="w-100 btn-salvar" mat-raised-button>Salvar Ong</button>

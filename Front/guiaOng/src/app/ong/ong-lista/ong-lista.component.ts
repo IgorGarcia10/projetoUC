@@ -12,6 +12,7 @@ export class OngListaComponent implements OnInit, OnDestroy {
 
   ongs: Ong[] = []
   private ongsSubscription: Subscription;
+  var: boolean = false
 
   // ongs = [
   //   {

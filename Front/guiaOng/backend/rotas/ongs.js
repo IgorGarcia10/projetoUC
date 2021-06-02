@@ -32,6 +32,8 @@ router.post('', (req, res, next) => {
     email: req.body.email,
     telefone: req.body.telefone,
     endereco: req.body.endereco,
+    foto: req.body.foto,
+    qrcode: req.body.qrcode,
     categoria: req.body.categoria,
     descricao: req.body.descricao
   });
@@ -52,6 +54,8 @@ router.put('/:id', (req, res, next) => {
     email: req.body.email,
     telefone: req.body.telefone,
     endereco: req.body.endereco,
+    foto: req.body.foto,
+    qrcode: req.body.qrcode,
     categoria: req.body.categoria,
     descricao: req.body.descricao
   });

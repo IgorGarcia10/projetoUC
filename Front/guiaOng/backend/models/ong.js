@@ -6,6 +6,8 @@ const ongSchema = mongoose.Schema ({
     email: {type: String, require: true},
     telefone: {type: String, require: false, default: '00000000'},
     endereco: {type: String, require: false, default: ''},
+    foto: {type: String, require: false, default: ''},
+    qrcode: {type: String, require: false, default: ''},
     categoria: {type: String, require: true},
     descricao: {type: String, require: true}
     });

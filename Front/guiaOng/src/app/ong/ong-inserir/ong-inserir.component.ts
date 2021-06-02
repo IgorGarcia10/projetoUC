@@ -40,6 +40,8 @@ export class OngInserirComponent implements OnInit {
             email: dadosOng.email,
             telefone: dadosOng.telefone,
             endereco: dadosOng.endereco,
+            foto: dadosOng.foto,
+            qrcode: dadosOng.qrcode,
             categoria: dadosOng.categoria,
             descricao: dadosOng.descricao
           };
@@ -70,6 +72,8 @@ export class OngInserirComponent implements OnInit {
         form.value.email,
         form.value.telefone,
         form.value.endereco,
+        form.value.foto,
+        form.value.qrcode,
         form.value.categoria,
         form.value.descricao
       );
@@ -82,6 +86,8 @@ export class OngInserirComponent implements OnInit {
         form.value.email,
         form.value.telefone,
         form.value.endereco,
+        form.value.foto,
+        form.value.qrcode,
         form.value.categoria,
         form.value.descricao
       )
