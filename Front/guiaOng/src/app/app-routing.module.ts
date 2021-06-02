@@ -14,7 +14,7 @@ import { OngInserirComponent } from './ong/ong-inserir/ong-inserir.component';
 import { OngListaComponent } from './ong/ong-lista/ong-lista.component';
 import { OngsComponent } from './ongs/ongs.component';
 import { SobreComponent } from './sobre/sobre.component';
-import { UsuarioInserirComponent } from './usuario-inserir/usuario-inserir.component';
+//import { UsuarioInserirComponent } from './usuario-inserir/usuario-inserir.component';
 
 const routes: Routes = [
 
@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: 'cadastrar', component: CadastrarComponent},
   {path: 'area-adm', component: AreaAdmComponent},
   {path: 'sobre', component: SobreComponent},
-  {path: 'usuario-inserir', component: UsuarioInserirComponent},
+ // {path: 'usuario-inserir', component: UsuarioInserirComponent},
   {path: 'contato', component: ContatoComponent},
   {path: 'ongs', component: OngsComponent},
   {path: 'doar', component: OngIndividualComponent},

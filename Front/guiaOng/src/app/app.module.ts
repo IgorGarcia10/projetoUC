@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { UsuarioInserirComponent } from './usuario-inserir/usuario-inserir.component';
 
@@ -69,6 +69,7 @@ import { OngService } from './service/ong.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     NoopAnimationsModule,
     MatInputModule,

@@ -60,7 +60,7 @@
                             <option value="frio">Frio</option>
                             <option value="criancas">Crianças</option>
                         </select>
-                    </div> --> <!-- fim do comentario  -->
+                    </div> --> 
 
                     <!-- <div class="form-group mt-3 cb fs">
                         <label for="senha">Senha</label>
@@ -81,7 +81,7 @@
                         </div>
                       </div> -->
                       <mat-card>
-                        <form (submit)="onAdicionarUsuario(clienteForm)" #clienteForm="ngForm">
+                        <form [formGroup]="form" (submit)="onAdicionarUsuario()">
                       <!--
                           <mat-form-field>
                             
@@ -95,11 +95,17 @@
                         -->
                           <!-- Nome e data de Nascimento -->
                           <mat-form-field class=""> 
-                            <input required minlength="3" type="text" matInput placeholder="Nome Completo" name="nome" ngModel
-                              #nome="ngModel" />
-                            <mat-error *ngIf="nome.invalid">Nome com no minimo 3 caracteres</mat-error>
+                            <input type="text" 
+                            matInput
+                            formControlName="nome" 
+                            placeholder="Nome Completo" 
+                            name="nome"/>
+                            <mat-error *ngIf="form.get('nome')">Nome com no minimo 3 caracteres
+                              
+                            </mat-error>
                           </mat-form-field>
-                      <!--
+                          
+                          <!-- 
                           <mat-form-field class="grupo2">
                             <mat-label>Data de Nascimento</mat-label>
                             <input required matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" name="dataNascimento" ngModel
@@ -107,7 +113,7 @@
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                           </mat-form-field>
-                        -->
+                         -->
                       
                           <!-- Numero e CPF 
                           <mat-form-field class="grupo1">
@@ -122,14 +128,24 @@
                       
                           <!-- Agrupar email e Confirme seu email -->
                           <mat-form-field class="">
-                            <input required type="text" matInput placeholder="E-mail" name="email" ngModel #email="ngModel" />
-                            <mat-error *ngIf="email.invalid">Digite um email válido</mat-error>
+                            <input 
+                            type="text" 
+                            matInput 
+                            formControlName="email"
+                            placeholder="E-mail" 
+                            name="email"/>
+                            <mat-error *ngIf="form.get('email')">Digite um email válido</mat-error>
                           </mat-form-field>
                       
                           <mat-form-field class="">
-                            <input required type="text" matInput placeholder="Confirme seu E-mail" name="confirmeEmail" ngModel
-                              #confirmeEmail="ngModel" />
-                            <mat-error *ngIf="email.invalid">Digite um email válido</mat-error>
+                            <input type="text" 
+                            matInput 
+                            formControlName="confirmeEmail"
+                            placeholder="Confirme seu E-mail" 
+                            name="confirmeEmail"
+                            />
+                            <mat-error *ngIf="form.get('confirmeEmail')">Digite um email válido</mat-error>
+                           
                           </mat-form-field>
                       
                           <!-- Campo unico CEP  
@@ -184,29 +200,41 @@
                       
                             <mat-form-field class="grupo1">
                               <mat-label>Escolha sua senha</mat-label>
-                              <input matInput [type]="hide ? 'password' : 'text'" required value="senha" name="senha" ngModel #data.repetirSenha="ngModel">
+                              <input 
+                              matInput [type]="hide ? 'password' : 'text'"
+                              value="senha"
+                              formControlName="senha" 
+                              name="senha"
+                              
+                              >
                       
                               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                                 [attr.aria-pressed]="hide">
                                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                       
                               </button>
-                              <!-- <mat-error *ngIf="senha != repetirSenha">As senhas digitadas estão diferentes</mat-error> -->
+                               <mat-error *ngIf="form.get('senha')">As senhas digitadas estão diferentes</mat-error>
+                              
                             </mat-form-field>
                       
                       
                             <mat-form-field class="grupo2">
                               <mat-label>Repetir sua senha</mat-label>
-                              <input matInput [type]="hide ? 'password' : 'text'" required value="repetirSenha" name="repetirSenha" ngModel #data.repetirSenha="ngModel">
+                              <input matInput [type]="hide ? 'password' : 'text'"  value="repetirSenha"
+                              formControlName="repetirSenha" 
+                              name="repetirSenha"
+                          
+                              >
                       
                               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                                 [attr.aria-pressed]="hide">
                                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                               </button>
                       
-                              <!-- <mat-error *ngIf="senha != repetirSenha">As senhas digitadas estão diferentes</mat-error> -->
+                              <mat-error *ngIf="form.get('repetirSenha')">As senhas digitadas estão diferentes</mat-error> 
                             </mat-form-field>
                       
+                            <br>
                             <br>
                           
                           <button class = "button btn-cadastrar"  mat-raised-button >
@@ -214,8 +242,6 @@
                           </button>
                         </form>
                       </mat-card>
-
-
 
                     <p class="text-center mt-3">Já tem um cadastro? <a routerLink='/entrar'>Volte ao Login</a></p>
                 </div>

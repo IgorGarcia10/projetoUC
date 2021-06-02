@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Usuario } from './model/usuario.model';
+//import { Usuario } from './model/usuario.model';
 
 @Component({
   selector: 'app-root',
