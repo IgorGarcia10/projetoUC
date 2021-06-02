@@ -1,3 +1,18 @@
+
+/* .banner{
+    background-image: url("../../assets/img/banner-1.jpg");
+
+} */
+
+.text-banner{
+    margin-top: -24rem;
+    font-size: 5rem;
+}
+
+.card-ong{
+    cursor: pointer;
+}
+
 #dados{
 background-color: rgb(26, 153, 111);
 }
@@ -19,7 +34,7 @@ background-color: rgb(26, 153, 111);
 }
 
 .cardcolor{
-    background-color: #ED615A;
+    background-color: #173169;
 }
 
 .jumbotron{

@@ -1,0 +1,32 @@
+.imgOng{
+    width: 32rem;
+    height: 18rem;
+    max-width: 34rem;
+    max-height: 18rem;
+}
+
+.imgQR{
+    width: 11rem;
+    height: 11rem;
+    max-width: 15rem;
+    max-height: 15rem;
+
+}
+
+.container-fluid{
+    background-color: rgb(241, 241, 241);
+}
+
+.col-1{
+    background-color: white;
+    border-radius: 5px;
+}
+
+.col-faixa{
+    background-color: rgba(0, 0, 0, 0.938);
+    color: #59B9B3;
+}
+
+.cor-tema{
+    color: #59B9B3;
+}

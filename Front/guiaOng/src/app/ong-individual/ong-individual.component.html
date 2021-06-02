@@ -1,1 +1,63 @@
 <!-- Depois de escolher uma ong, é redirecionado para essa página onde será mostrado as caracteristicas individuais da ong clicada e tbm o link de doação -->
+
+<div class="container-fluid ">
+    <div class="row d-flex justify-content-center">
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-faixa mt-2">
+                <h1 class="text-center mt-5 mb-5">{{ong.nome}}</h1>
+        </div>
+
+        <div class="col-md-5 col-1 ml-5 mt-5">
+            <img class="mt-3 mb-3 imgOng" src="{{ong.foto}}" ngModel />
+        </div>
+        <div class="col-md-3 col-1 ml-5 mt-5">
+            <h2 class="cor-tema text-center mt-3"> Doe Agora!</h2>
+
+            <div class="text-center">
+                <img class="imgQR mt-3 mb-3" src="{{ong.qrcode}}" />
+            </div>
+            
+            <h5 class="text-center mb-4">Vem salvar histórias com a gente</h5>
+        </div>
+
+
+
+    </div>
+
+   
+
+    <div class="row d-flex justify-content-center mb-4">
+        <div class="col-md-5 col-1 ml-5 mt-5">
+
+            <h2 class="cor-tema text-center mt-3">Sobre a Ong</h2>
+            <hr>
+            <h3>Descrição</h3>
+            <p>{{ong.descricao}}</p>
+            <h4>Mais Informações</h4>
+            <div class="row">
+                <div class="col-md-4"><p class="mb-1 font-weight-bold">Sua categoria é :</p></div>
+                <div class="col-md-8 d-flex justify-content-start"><p>{{ong.categoria}}</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><p class="mb-1 font-weight-bold">CNPJ:</p></div>
+                <div class="col-md-10 d-flex text-start"><p>{{ong.cnpj}}</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"><p class="mb-1 font-weight-bold">Está localizada no endereço:</p></div>
+                <div class="col-md-12"><p>{{ong.endereco}}</p></div>
+            </div>
+
+        </div>
+
+        <div class="col-md-3 col-1 ml-5 mt-5">
+            <h3 class="cor-tema text-center mt-5 mb-4">Entre em contato!</h3>
+            <h5 class="text-center mb-2 mt-2">Você pode entrar em contato direto com a ONg através dos meios de comunicação abaixo.</h5>
+
+            <p class="text-center mb-2 mt-5 font-weight-bold">{{ong.email}}</p>
+            <p class="text-center font-weight-bold">{{ong.telefone}}</p>
+        </div>
+
+    </div>
+
+</div>

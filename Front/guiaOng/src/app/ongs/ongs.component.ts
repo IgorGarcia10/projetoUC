@@ -13,7 +13,7 @@ export class OngsComponent implements OnInit {
 
   ongs: Ong[] = []; 
   private ongsSubscription: Subscription;
-  tituloOng: string
+
 
   constructor(
     private ongService: OngService

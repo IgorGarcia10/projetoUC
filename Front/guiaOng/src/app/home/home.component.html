@@ -2,33 +2,17 @@
 
 <!--Inicio Carousel-->
 <div class="container-fluid p-0">
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="../../assets/img/banner-1.jpg" alt="Primeiro Slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2>Doe e salve Vidas</h2>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src=".../800x400?auto=yes&bg=666&fg=444&text=Segundo Slide"
-                        alt="Segundo Slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>...</h5>
-                        <p>...</p>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src=".../800x400?auto=yes&bg=555&fg=333&text=Terceiro Slide"
-                            alt="Terceiro Slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>...</h5>
-                            <p>...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="row banner">
+        <img src="../../assets/img/banner-1.jpg" alt="">
+        
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12 mb-5 mt-5">
+        <h1 class="text-white text-center text-banner">Doe e Salve Vidas</h1>
+    </div>
+</div>
+
 <!--Fim Carousel-->
 
 
@@ -36,7 +20,7 @@
 <!--Testo como funciona e abaixo cards contendo as instruções para os usuarios-->
 <div class="container-fluid p-0" id="comofunciona">
     <div class="row">
-        <h2 class="text-center mt-5 mb-4">Como funciona o Guia ONG?</h2>
+        <h2 class="text-center">Como funciona o Guia ONG?</h2>
     </div>
 
     <div class="row justify-content-around text-center mt-5">
@@ -70,10 +54,10 @@ abaixo botão ver mais (direciona para todas as ongs)-->
         <h2 class="d-flex align-items-center justify-content-around">Conheça algumas de nossas ONGs</h2>
     </div>
     <div class="row d-flex align-items-center justify-content-around">
-        <div class="card text-white cardcolor mb-3" style="width: 18rem; height: 18rem;" *ngFor="let item of ong">
+        <div class="card card-ong text-white cardcolor mb-3" [routerLink]="['/ong', ong.id]" style="width: 18rem; height: 18rem;" *ngFor="let ong of ongs">
             <div class="card-body text-center">
-                <h2 class="card-title mb-4">{{item.nome}}</h2>
-                <p class="card-text">{{item.descricao}}</p>
+                <h2 class="card-title mb-4">{{ong.nome}}</h2>
+                <p class="card-text">{{ong.descricao}}</p>
             </div>
         </div>
     </div>
@@ -110,9 +94,13 @@ abaixo botão ver mais (direciona para todas as ongs)-->
         <div class="col-md-8">
             <div class="jumbotron">
                 <h2 class="display-4 text-white mb-5">Conheca um pouco mais sobre a gente!</h2>
-                <p class="lead text-white">O Guia ONG nasceu com o intuito de dar visibilidade àqueles que merecem e que por algum motivo não tem o acesso ou não conseguiram dar uma maior visibilidade para seu super projeto.</p>
-                <p class="text-white">Em caso de dúvidas entre em contato através do <a class="jum-contato" routerLink='/contato'>Contato</a></p>
-                <a class="btn btn-lg btn-jumbotron mt-4 justify-content-center d-flex align-items-center" role="button" routerLink='/sobre'>Saiba mais!</a>
+                <p class="lead text-white">O Guia ONG nasceu com o intuito de dar visibilidade àqueles que merecem e que
+                    por algum motivo não tem o acesso ou não conseguiram dar uma maior visibilidade para seu super
+                    projeto.</p>
+                <p class="text-white">Em caso de dúvidas entre em contato através do <a class="jum-contato"
+                        routerLink='/contato'>Contato</a></p>
+                <a class="btn btn-lg btn-jumbotron mt-4 justify-content-center d-flex align-items-center" role="button"
+                    routerLink='/sobre'>Saiba mais!</a>
             </div>
         </div>
     </div>

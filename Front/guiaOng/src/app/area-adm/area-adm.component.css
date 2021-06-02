@@ -3,13 +3,16 @@
 }
 
 #card-cat {
-  background-color: rgb(78, 228, 64);
+  background-color: rgb(76, 155, 69);
+  color: white;
 }
 
 #card-ong {
   background-color: lightcoral;
+  color: white;
 }
 
 #card-cont {
   background-color: lightseagreen;
+  color: white;
 }

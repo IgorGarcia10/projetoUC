@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Ong } from '../model/ong.model';
+import { OngService } from '../service/ong.service';
 
 @Component({
   selector: 'app-home',
@@ -7,28 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  ong = [
-    {
-    nome:"Fome",
-    descricao: "Breve descrição sobre a Ong"
-  },
-  {
-    nome:"Frio",
-    descricao: "Breve descrição sobre a Ong"
-  },
-  {
-    nome: "Crianças",
-    descricao: "Breve descrição sobre a Ong"
-  },
-  {
-    nome: "Brinquedos",
-    descricao: "Breve descrição sobre a Ong"
-  }
-]
-  constructor() { }
+  ongs: Ong[] = []; 
+  private ongsSubscription: Subscription;
 
-  ngOnInit() {
-    window.scroll(0, 0) 
+
+  constructor(
+    private ongService: OngService
+  ) { }
+
+  ngOnInit(): void {
+    window.scroll(0,0);
+
+    this.ongService.getOngs();
+    this.ongsSubscription = this.ongService
+    .getListaOngsAtualizaObservable()
+    .subscribe(
+      (ongs: Ong[]) => {
+        this.ongs = ongs.slice(0, 4)
+      }
+    )
+      ;
+
   }
 
 }

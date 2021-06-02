@@ -8,5 +8,13 @@
 }
 
 .cardcolor{
-  background-color: #59B9B3;
+  background-color: #59b9b29f;
+}
+
+.text-banner{
+  margin-top: -55rem;
+  font-size: 5rem;
+  background-color: rgba(13, 148, 148, 0.582);
+  color: white;
+  
 }
