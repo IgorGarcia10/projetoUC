@@ -3,7 +3,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const categoriaRoutes = require('./rotas/categorias');
-const ongRoutes = require('./rotas/ongs')
+const ongRoutes = require('./rotas/ongs');
+const usuarioRoutes = require('./rotas/usuarios');
 
 mongoose.connect('mongodb+srv://user_guiaong:guiaong123@clusterguiaong.xptir.mongodb.net/guiaOng?retryWrites=true&w=majority')
   .then(() => {
@@ -24,5 +25,6 @@ app.use((req, res, next) => {
 
 app.use('/api/categorias', categoriaRoutes);
 app.use('/api/ongs', ongRoutes);
+app.use('/api/usuarios', usuarioRoutes);
 
 module.exports = app;

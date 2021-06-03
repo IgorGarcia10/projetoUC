@@ -2,45 +2,55 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../model/user';
 import { AuthService } from '../service/auth.service';
-//import { FormGroup,NgForm } from '@angular/forms';
-import { Form, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from '../service/usuario.service';
+
+import { NgForm } from '@angular/forms';
+import { Usuario } from '../model/usuario.model';
+import { CategoriaService } from 'src/app/service/categoria.service';
+import { Categoria } from 'src/app/model/categoria';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 interface Uf {
   value: string;
   viewValue: string;
 }
-
 @Component({
   selector: 'app-cadastrar',
   templateUrl: './cadastrar.component.html',
   styleUrls: ['./cadastrar.component.css']
 })
+
+
 export class CadastrarComponent implements OnInit {
   form: FormGroup;
   minDate: Date;
   maxDate: Date;
   hide = true;
-  private modo: string = "criar";
   user: User = new User
+
+  categorias: Categoria[] = [];
+  public categoriasSubscription: Subscription;
+  private modo: string = "criar";
+  private idUsuario: string | any;
+  public usuario: Usuario | any;
   
   data = {
     senha: '',
     repetirSenha: '',
   };
 
-  
   constructor(public usuarioService: UsuarioService,
     private authService: AuthService,
-    private router: Router
-  ) {
-
+    public categoriaService: CategoriaService,
+    public route: ActivatedRoute
+    ) {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 120, 0, 1);
     this.maxDate = new Date(currentYear - 18, 1, 1)
-
   }
-
+ 
   ufs: Uf[] = [
     { value: 'AC', viewValue: 'Acre' },
     { value: 'AL', viewValue: 'Alagoas' },
@@ -86,65 +96,67 @@ export class CadastrarComponent implements OnInit {
         validators: [Validators.required, Validators.email,]
       }),
       senha: new FormControl(null,{
-        validators: [Validators.required]}
+        validators: [Validators.required]}, 
+        
       ),
-      repetirSenha: new FormControl(null, {
-        validators: [Validators.required ]
+      repetirSenha: new FormControl(null,{
+        validators: [Validators.required]
       }),
       
     })
-  }
-   comparar(){
-      return(this.data.senha === this.data.repetirSenha ? null: {comparacao: true}); 
-  }
-
-/*
-  checkIfMatchingPasswords(passwordKey: string, passwordConfirmationKey: string) {
-    return (group: FormGroup) => {
-      let passwordInput = group.controls[passwordKey],
-          passwordConfirmationInput = group.controls[passwordConfirmationKey];
-      if (passwordInput.value !== passwordConfirmationInput.value) {
-        return passwordConfirmationInput.setErrors({notEquivalent: true})
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if (paramMap.has("idUsuario")) {
+        this.modo = "editar";
+        this.idUsuario = paramMap.get("idUsuario");
+        this.usuarioService.getUsuario(this.idUsuario).subscribe(dadosUsuario => {
+          this.usuario ={
+            id: dadosUsuario._id,
+            nome: dadosUsuario.nome,
+            email: dadosUsuario.email,
+            senha: dadosUsuario.senha,
+          };
+        });
       }
       else {
-          return passwordConfirmationInput.setErrors(null);
+        this.modo = "criar";
+        this.idUsuario = null;
       }
+    });
+    this.categoriaService.getCategorias();
+    this.categoriasSubscription = this.categoriaService
+      .getListaCategoriaAtualizadaObservable()
+      .subscribe(
+        (categorias: Categoria[]) => {
+          this.categorias = categorias
+        });
+  }
+
+  onAdicionarUsuario() {
+    if (this.form.invalid) {
+      return;
     }
-  } */
+    if(this.modo === "criar"){
+      this.usuarioService.adicionarUsuario(
+        this.form.value.nome,
+        this.form.value.email,
+        this.form.value.senha,
+      );
+    }
+    else {
+      this.usuarioService.atualizarUsuario(
+        this.idUsuario,
+        this.form.value.nome,
+        this.form.value.email,
+        this.form.value.senha,
+      )
+    }    
+    this.form.reset();
+  }
 
-  
 
-  /*  onAdicionarUsuario(form: NgForm) {
-     
-     if (this.form.invalid){
-       return;
-     }
-     if (this.modo === "criar"){
-     this.usuarioService.adicionarUsuario(
-       this.form.value.tipo,
-       this.form.value.nome,
-       this.form.value.fone,
-       this.form.value.email,
-       this.form.value.cpf,
-       this.form.value.senha,
-       this.form.value.cep,
-       this.form.value.lagradouro,
-       this.form.value.numero,
-       this.form.value.complemento,
-       this.form.value.bairro,
-       this.form.value.uf,
-       this.form.value.cidade,
-       this.form.value.dataNascimento,
-     );
-     form.resetForm();
-   }
- 
-   }
-  */
 
-   
 
-   onAdicionarUsuario() {
+  /*  onAdicionarUsuario() {
     if (this.form.invalid) {
       return;
     }
@@ -167,6 +179,6 @@ export class CadastrarComponent implements OnInit {
       );
     }
     this.form.reset();
-  } 
+  }  */
 
 }
