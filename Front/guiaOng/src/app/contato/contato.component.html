@@ -1,9 +1,11 @@
+<br>
+<mat-accordion *ngIf="enviado == false">
+<h1 class="text-center mb-3 cb"> Entre em contato conosco!</h1>
 <mat-card>
     <form [formGroup]="form" (submit)="onEnviar()" >
         
-
         <div class="row d-flex justify-content-center">
-      <!-- Nome  -->
+      
       <mat-form-field class=""> 
         <input type="text" 
         matInput
@@ -46,19 +48,21 @@
         </mat-error>
       </mat-form-field>
 
-      <!-- <button class = "button btn-cadastrar"
-      mat-raised-button>
-        Enviar
-      </button> -->
 
-      <button mat-button color="primary">Enviar</button>
+      <button mat-button color="primary" class="button" >Enviar</button>
     </div>
-      <br><br>
-
-  
-        <br>
-        <br>
-      
-      
+        <br>      
     </form>
   </mat-card>
+</mat-accordion>
+
+<mat-accordion *ngIf="mensagemCarregando == true">
+  <br>
+  <br>
+  <br>
+  <h1 class="text-center mb-3 cb">Sua mensagem foi enviada com sucesso!</h1>
+  <br>
+  <br>
+  <br>
+  <br>
+</mat-accordion>

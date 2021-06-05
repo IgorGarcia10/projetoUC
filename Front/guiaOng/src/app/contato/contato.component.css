@@ -6,8 +6,22 @@ mat-form-field, input {
     display: "center";
   }
 
-  /* .btn-enviar {
-    background-color: rgb(76, 155, 69);
+  .cb {
+    color: #59B9B3;
+  }
+  
+  .fs {
+    font-size: 14pt;
+  }
+  
+  .button {
+    background-color: #59B9B3; /* Green */
+    border: none;
     color: white;
-    width: 45%;
-  } */
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 35%;
+  }

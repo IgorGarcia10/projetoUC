@@ -9,49 +9,131 @@ import { Contato } from '../model/contato';
   providedIn: 'root'
 })
 export class ContatoService {
-  [x: string]: any;
-
   private contato: Contato[] = [];
-
+  private listaContatoAtualizada = new Subject<Contato[]>()
 
   constructor(
     private httpClient: HttpClient,
     private router: Router
   ) { }
 
-/* 
+  getContato(idContato: string) {
+    return this.httpClient.get<{ _id: string, nome: string, email: string, assunto: string, mensagem: string }>(
+      `http://localhost:3000/api/contato/${idContato}`
+    );
+  }
+
+  getContatos(): void {
+    this.httpClient.get<{
+      mensagem: string, contato: any
+    }>(
+      'http://localhost:3000/api/contato'
+    )
+      .pipe(
+        map((dados) => {
+          return dados.contato.map((contato: { _id: any; nome: any; email: any; assunto: any; mensagem: any; }) => {
+            return {
+              id: contato._id,
+              nome: contato.nome,
+              email: contato.email,
+              assunto: contato.assunto,
+              mensagem: contato.mensagem,
+            }
+          })
+        })
+      )
+      .subscribe(
+        (contato) => {
+          this.contato = contato;
+          this.listaContatoAtualizada.next([...this.contato]);
+        }
+      )
+  }
+
+  getListaContatoAtualizaObservable() {
+    return this.listaContatoAtualizada.asObservable();
+  }
+
   adicionarContato(nome: string, email: string, assunto: string, mensagem: string) {
+    const contato: Contato = {
+      id: "",
+      nome: nome,
+      email: email,
+      assunto: assunto,
+      mensagem: mensagem
+    }
+    this.httpClient.post<{
+      mensagem: string,
+      id: string
+    }>(
+      'http://localhost:3000/api/contato', contato
+    ).subscribe(
+      (dados) => {
+        contato.id = dados.id;
+        this.contato.push(contato);
+        this.listaContatoAtualizada.next([...this.contato]);
+        this.router.navigate(['/contato']);
+      }
+    )
+  }
+
+  removerContato(id: string): void {
+    this.httpClient.delete(`http://localhost:3000/api/contato/${id}`)
+      .subscribe(() => {
+        this.contato = this.contato.filter((contato) => {
+          return contato.id !== id
+        });
+        this.listaContatoAtualizada.next([...this.contato]);
+        console.log(`Contato de id: ${id} removid0`);
+      });
+  }
+
+  atualizarOng(id: string, nome: string, email: string, assunto: string, mensagem: string) {
+    const contato: Contato = { id, nome, email, assunto, mensagem};
+    this.httpClient.put(`http://localhost:3000/api/contato/${id}`, contato)
+      .subscribe((res => {
+        const copia = [...this.contato];
+        const indice = copia.findIndex(contato => contato.id === contato.id);
+        copia[indice] = contato;
+        this.contato = copia;
+        this.listaContatoAtualizada.next([...this.contato]);
+        this.router.navigate(['/contato']);
+      }));
+
+  }
+  /* 
+    adicionarContato(nome: string, email: string, assunto: string, mensagem: string) {
+      const contato: Contato = {
+        nome: nome,
+        email: email,
+        assunto: assunto,
+        mensagem: mensagem,
+      }
+      /* sendMessage(body) {
+          return this._http.post('http://localhost:3000/sendmail', body);
+        } 
+    } */
+
+
+  /* adicionarContato(nome: string, email: string, assunto: string, mensagem: string) {
     const contato: Contato = {
       nome: nome,
       email: email,
       assunto: assunto,
       mensagem: mensagem,
     }
-    /* sendMessage(body) {
-        return this._http.post('http://localhost:3000/sendmail', body);
-      } 
-  } */
-
-
-  adicionarContato(nome: string, email: string, assunto: string, mensagem: string) {
-    const contato: Contato = {
-        nome: nome,
-        email: email,
-        assunto: assunto,
-        mensagem: mensagem,
-      }
     this.httpClient.post<{
       mensagem: string,
       id: string
     }>(
-        'http://localhost:3000/api/envia', contato
+      'http://localhost:3000/api/envia', contato
     ).subscribe(
       (dados) => {
-        
+
         this.router.navigate(['/envia']);
       }
     )
-  }
+  } */
 
   /* register() {
     

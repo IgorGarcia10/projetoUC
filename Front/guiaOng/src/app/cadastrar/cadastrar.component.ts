@@ -151,35 +151,7 @@ export class CadastrarComponent implements OnInit {
       )
     }    
     this.form.reset();
-    //window.location.href = 'http://localhost:4200/entrar';
+    window.location.href = 'http://localhost:4200/entrar';
   }
-
-
-
-
-  /*  onAdicionarUsuario() {
-    if (this.form.invalid) {
-      return;
-    }
-    if (this.modo === "criar") {
-      this.usuarioService.adicionarUsuario(
-      //this.form.value.tipo,
-      this.form.value.nome,
-      //this.form.value.fone,
-      this.form.value.email,
-      //this.form.value.cpf,
-      this.form.value.senha,
-      //this.form.value.cep,
-      //this.form.value.lagradouro,
-      //this.form.value.numero,
-      //this.form.value.complemento,
-      //this.form.value.bairro,
-      //this.form.value.uf,
-      //this.form.value.cidade,
-      //this.form.value.dataNascimento,
-      );
-    }
-    this.form.reset();
-  }  */
 
 }
