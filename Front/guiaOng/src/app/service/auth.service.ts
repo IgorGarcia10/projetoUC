@@ -13,6 +13,8 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
+   
+
   //caminhos devem estar iguais aos mensionados no beck
   entrar(userLogin: UserLogin): Observable<UserLogin>{
     return this.http.post<UserLogin>('http//:localhost:8080/usuarios/logar', userLogin)

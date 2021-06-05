@@ -40,6 +40,8 @@ import { AreaAdmComponent } from './area-adm/area-adm.component';
 import { OngInserirComponent } from './ong/ong-inserir/ong-inserir.component';
 import { OngListaComponent } from './ong/ong-lista/ong-lista.component';
 import { OngService } from './service/ong.service';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 
 
@@ -63,7 +65,9 @@ import { OngService } from './service/ong.service';
     CategoriaListarComponent,
     AreaAdmComponent,
     OngInserirComponent,
-    OngListaComponent
+    OngListaComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

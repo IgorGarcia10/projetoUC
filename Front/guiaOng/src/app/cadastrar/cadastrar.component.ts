@@ -82,22 +82,22 @@ export class CadastrarComponent implements OnInit {
       return;
     }
 
-    this.usuarioService.adicionarUsuario(
-      form.value.tipo,
-      form.value.nome,
-      form.value.fone,
-      form.value.email,
-      form.value.cpf,
-      form.value.senha,
-      form.value.cep,
-      form.value.lagradouro,
-      form.value.numero,
-      form.value.complemento,
-      form.value.bairro,
-      form.value.uf,
-      form.value.cidade,
-      form.value.dataNascimento,
-    );
+    // this.usuarioService.adicionarUsuario(
+    //   form.value.tipo,
+    //   form.value.nome,
+    //   form.value.fone,
+    //   form.value.email,
+    //   form.value.cpf,
+    //   form.value.senha,
+    //   form.value.cep,
+    //   form.value.lagradouro,
+    //   form.value.numero,
+    //   form.value.complemento,
+    //   form.value.bairro,
+    //   form.value.uf,
+    //   form.value.cidade,
+    //   form.value.dataNascimento,
+    // );
     form.resetForm();
 
 

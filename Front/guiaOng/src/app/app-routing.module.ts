@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AreaAdmComponent } from './area-adm/area-adm.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { CategoriaInserirComponent } from './categoria/categoria-inserir/categoria-inserir.component';
 import { CategoriaListarComponent } from './categoria/categoria-listar/categoria-listar.component';
@@ -21,8 +23,13 @@ const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'}, 
   
   {path: 'home', component: HomeComponent},
+
   {path: 'entrar', component: EntrarComponent},
   {path: 'cadastrar', component: CadastrarComponent},
+
+  {path: 'login', component: LoginComponent},
+  {path: 'signup', component: SignupComponent},
+
   {path: 'area-adm', component: AreaAdmComponent},
   {path: 'sobre', component: SobreComponent},
   {path: 'usuario-inserir', component: UsuarioInserirComponent},
