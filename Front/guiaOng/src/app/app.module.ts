@@ -1,4 +1,5 @@
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
+import { AuthInterceptor } from './auth/auth-interceptor'
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -89,9 +90,11 @@ import { SignupComponent } from './auth/signup/signup.component';
     HttpClientModule
   ],
   providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     UsuarioService,
     CategoriaService,
-    OngService
+    OngService,
+    
 
   ],
   bootstrap: [AppComponent]

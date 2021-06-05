@@ -3,14 +3,20 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AuthData } from '../auth/auth-data.model';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 
 export class UsuarioService {
     private usuarios: Usuario[] = [];
     private listaUsuariosAtualizada = new Subject<Usuario[]>();
+    private token: string | any;
+    private authStatusSubject = new Subject<boolean>();
 
-    constructor(private httpClient: HttpClient) {
+    constructor(
+        private httpClient: HttpClient,
+        private router: Router
+    ) {
     }
 
     criarUsuario(email: string, senha: string) {
@@ -19,38 +25,47 @@ export class UsuarioService {
             password: senha
         }
         this.httpClient.post("http://localhost:3000/api/usuario/signup", authData)
-        .subscribe(
-            resposta => {
-            console.log(resposta)
-        });
+            .subscribe(
+                resposta => {
+                    console.log(resposta)
+                });
+    }
+
+    login(email: string, senha: string) {
+        const authData: AuthData = {
+            email: email,
+            password: senha
+        }
+        this.httpClient.post<{ token: string }>("http://localhost:3000/api/usuario/login",
+            authData).subscribe(resposta => {
+                this.token = resposta.token;
+                this.authStatusSubject.next(true);
+                this.router.navigate(['/'])
+            });
+    }
+
+    public getToken(): string {
+        return this.token;
+    }
+
+    public getStatusSubject() {
+        return this.authStatusSubject.asObservable();
+    }
+
+    logout() {
+        this.token = null;
+        this.authStatusSubject.next(false);
+        this.router.navigate(['/'])
     }
 
 
-    getUsuarios(): Usuario[] {
-        return [...this.usuarios];
+    getUsuario(idUsuario: string) {
+        // return { ...this.categorias.find((cli) => cli.id === idCategoria)};
+        return this.httpClient.get<{ _id: string, email: string, password: string }>(
+            `http://localhost:3000/api/usuario/${idUsuario}`
+        )
     }
-    // adicionarUsuario(tipo: string, nome: string, fone: string, email: string, cpf: string, senha: string,cep: string, lagradouro: string, numero: string, complemento: string, bairro: string, uf: string, cidade: string, dataNascimento: Date,) {
-    //     const usuario: Usuario = {
-    //         tipo: tipo,
-    //         nome: nome,
-    //         fone: fone,
-    //         email: email,
-    //         cpf: cpf, 
-    //         senha: senha,
-    //         cep: cep, 
-    //         lagradouro: lagradouro,
-    //         numero: numero, 
-    //         complemento: complemento, 
-    //         bairro: bairro, 
-    //         uf: uf, 
-    //         cidade: cidade,
-    //         dataNascimento: dataNascimento,
-    //     };
-    //     this.usuarios.push(usuario);
-    //     this.listaUsuariosAtualizada.next([...this.usuarios]);
-    //     console.log(this.usuarios);
-    //     console.log(usuario);
-    // }
+
     getListaDeUsuariosAtualizadaObservable() {
         return this.listaUsuariosAtualizada.asObservable();
     }

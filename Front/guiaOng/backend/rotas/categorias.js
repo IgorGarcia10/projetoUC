@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Categoria = require('../models/categoria');
+const checkAuth = require ('../middleware/check-auth');
 
 
 router.get('', (req, res, next) => {
@@ -19,14 +20,14 @@ router.get('/:id', (req, res, next) => {
         res.status(200).json(cat);
       } else {
         res.status(404).json({
-          mensagem: "Cliente não encontrado!"
+          mensagem: "Categoria não encontrado!"
         });
       }
 
     })
 });
 
-router.post('', (req, res, next) => {
+router.post('',checkAuth, (req, res, next) => {
   const categoria = new Categoria({
     nome: req.body.nome
   })
@@ -40,7 +41,7 @@ router.post('', (req, res, next) => {
 
 });
 
-router.put('/:id', (req, res, next) => {
+router.put('/:id',checkAuth, (req, res, next) => {
   const categoria = new Categoria({
     _id: req.params.id,
     nome: req.body.nome
@@ -57,7 +58,7 @@ router.put('/:id', (req, res, next) => {
 });
 
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id',checkAuth, (req, res, next) => {
   Categoria.deleteOne({
       _id: req.params.id
     })

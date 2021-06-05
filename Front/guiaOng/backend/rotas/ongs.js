@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const Ong = require('../models/ong')
+const Ong = require('../models/ong');
+const checkAuth = require ('../middleware/check-auth');
 
 router.get('', (req, res, next) => {
   Ong.find().then(documents => {
@@ -25,7 +26,7 @@ router.get('/:id', (req, res, next) => {
     })
 });
 
-router.post('', (req, res, next) => {
+router.post('',checkAuth, (req, res, next) => {
   const ong = new Ong({
     nome: req.body.nome,
     cnpj: req.body.cnpj,
@@ -46,7 +47,7 @@ router.post('', (req, res, next) => {
   
 })
 
-router.put('/:id', (req, res, next) => {
+router.put('/:id',checkAuth, (req, res, next) => {
   const ong = new Ong({
     _id: req.params.id,
     nome: req.body.nome,
@@ -70,7 +71,7 @@ router.put('/:id', (req, res, next) => {
   })
 });
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id',checkAuth, (req, res, next) => {
   Ong.deleteOne({
       _id: req.params.id
     })
