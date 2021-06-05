@@ -31,7 +31,7 @@ import { OngIndividualComponent } from './ong-individual/ong-individual.componen
 import { DoacoesComponent } from './doacoes/doacoes.component';
 import { ContaComponent } from './conta/conta.component';
 
-
+import { ContatoService } from './service/contato.service';
 import { UsuarioService } from './service/usuario.service';
 import { CategoriaService } from './service/categoria.service';
 import { CategoriaInserirComponent } from './categoria/categoria-inserir/categoria-inserir.component';
@@ -63,7 +63,8 @@ import { OngService } from './service/ong.service';
     CategoriaListarComponent,
     AreaAdmComponent,
     OngInserirComponent,
-    OngListaComponent
+    OngListaComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -86,6 +87,7 @@ import { OngService } from './service/ong.service';
     HttpClientModule
   ],
   providers: [
+    ContatoService,
     UsuarioService,
     CategoriaService,
     OngService

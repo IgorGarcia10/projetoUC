@@ -5,8 +5,6 @@ import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Usuario } from '../model/usuario.model';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -104,5 +102,18 @@ export class UsuarioService {
     }));
 
   }
+
+  login(id: string, nome: string, email: string, senha: string) {
+    const usuario: Usuario = {
+      id: "",
+      nome: nome,
+      email: email,
+      senha: senha,
+    }
+    this.httpClient.post("http://localhost:3000/api/entrar", usuario).subscribe(resposta=> {
+      console.log(resposta)
+    });
+  }
+
 
 }

@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+
+
+
 import { AreaAdmComponent } from './area-adm/area-adm.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { CategoriaInserirComponent } from './categoria/categoria-inserir/categoria-inserir.component';

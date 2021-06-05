@@ -151,6 +151,7 @@ export class CadastrarComponent implements OnInit {
       )
     }    
     this.form.reset();
+    //window.location.href = 'http://localhost:4200/entrar';
   }
 
 

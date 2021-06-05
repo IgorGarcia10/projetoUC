@@ -2,6 +2,11 @@ const express = require("express");
 const router = express.Router();
 const Usuario = require('../models/usuario')
 
+const bcrypt = require('bcrypt');
+const jwt = require ('jsonwebtoken');
+
+//CRUD DO CADASTRO USUARIO
+
 router.get('', (req, res, next) => {
   Usuario.find().then(documents => {
     res.status(200).json({
@@ -25,6 +30,7 @@ router.get('/:id', (req, res, next) => {
     })
 });
 
+//Criar usuario sem a autentificação 
 router.post('', (req, res, next) => {
   const usuario = new Usuario({
     nome: req.body.nome,
@@ -37,7 +43,61 @@ router.post('', (req, res, next) => {
       id: UsuarioInserido._id
     })
   })
-  
+})
+//cria o usuario com autentificacao e criptografado
+/* router.post('/cadastrar', (req, res, next) => {
+  bcrypt.hash(req.body.password, 10)
+      .then(hash => {
+          const usuario = new Usuario({
+              nome: req.body.nome,
+              email: req.body.email,
+              password: hash
+          })
+          usuario.save()
+              .then(result => {
+                  res.status(201).json({
+                      mensagem: "Usuario criado",
+                      resultado: result
+                  });
+              })
+              .catch(err => {
+                  res.status(500).json({
+                      erro: err
+                  })
+              })
+      })
+}); */
+
+//Autentica o usuario com o banco
+router.post('/login', (req, res, next) => {
+  let user;
+  Usuario.findOne({ email: req.body.email }).then(u => {
+      user = u;
+      if (!u) {
+          return res.status(401).json({
+              mensagem: "email inválido"
+          })
+      }
+      return bcrypt.compare(req.body.password, u.password);
+  })
+      .then(result => {
+          if (!result) {
+              return res.status(401).json({
+                  mensagem: "senha inválida"
+              })
+          }
+          const token = jwt.sign(
+              { email: user.email, id: user._id },
+              'minhasenha',
+              { expiresIn: '1h' }
+          )
+          res.status(200).json({ token: token })
+      })
+      .catch(err => {
+          return res.status(401).json({
+              mensagem: "Login falhou: " + err
+          })
+      })
 })
 
 router.put('/:id', (req, res, next) => {

@@ -8,7 +8,7 @@
                 <div class="col-md-8">
 
                     <h1 class="text-center mb-3 cb"> Entrar</h1>
-
+                    
                     <div class="form-group cb fs">
                         <label for="usuario">Usuário</label>
                         <input [(ngModel)]='userLogin.email' class="form-control mb-2" type="text" id="usuario" placeholder="Seu usuário">
@@ -24,8 +24,24 @@
                     </div>
 
                     <hr class="mt-4 mb-3">
-                    <p class="text-center">Não tem uma conta? <a routerLink='/cadastrar'>Cadastre-se</a></p>
+                    <p class="text-center">Não tem uma conta? <a routerLink='/cadastrar'>Cadastre-se</a></p> 
                 
+                    <!-- <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+                        <mat-form-field>
+                            <input matInput name="email" ngModel #emailInput="ngModel" type="email" placeholder="Email" required email>
+                            <mat-error *ngIf="emailInput.invalid">Digite um email válido</mat-error>
+                        </mat-form-field>
+
+                        <br>
+                        
+                        <mat-form-field>
+                            <input matInput name="password" #passwordInput="ngModel" ngModel type="password" placeholder="Senha"
+                                required>
+                            <mat-error *ngIf="passwordInput.invalid">Senha inválida</mat-error>
+                        </mat-form-field>
+                        <button mat-raised-button color="accent" type="submit">Login</button>
+                    </form>
+ -->
                 </div>
             </div>
         </div>

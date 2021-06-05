@@ -1,0 +1,13 @@
+mat-form-field, input {
+    width: 70%;
+  }
+  
+  mat-card {
+    display: "center";
+  }
+
+  /* .btn-enviar {
+    background-color: rgb(76, 155, 69);
+    color: white;
+    width: 45%;
+  } */
