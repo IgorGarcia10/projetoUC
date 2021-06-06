@@ -37,7 +37,7 @@ export class UsuarioService {
             email: email,
             password: senha
         }
-        this.httpClient.post<{ token: string }>("http://localhost:3000/api/usuario/login",
+        this.httpClient.post<{ token: string, email: string }>("http://localhost:3000/api/usuario/login",
             authData).subscribe(resposta => {
                 this.token = resposta.token;
                 this.authStatusSubject.next(true);
