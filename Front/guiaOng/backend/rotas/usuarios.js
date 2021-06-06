@@ -49,7 +49,7 @@ router.post('/login', (req, res, next) => {
       const token = jwt.sign({
           email: user.email,
           id: user._id,
-          admin: user.admin
+          admin: user.admin,
           
         },
         'minhasenha', {
@@ -59,7 +59,9 @@ router.post('/login', (req, res, next) => {
       res.status(200).json({
         token: token,
         expiresIn: 3600, //unidade pode ser qualquer, aqui estamos usando segundos
-        idUsuario: user._id
+        idUsuario: user._id,
+        admin: user.admin,
+        email: user.email
 
       })
     })

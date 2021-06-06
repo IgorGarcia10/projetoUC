@@ -3,5 +3,6 @@ export const environment = {
   token: '',
   nome: '',
   admin: '',
-  id:0
+  id:0,
+  email: ''
 };

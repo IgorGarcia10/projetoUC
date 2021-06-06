@@ -31,8 +31,8 @@ export class AppComponent implements OnInit {
         admin: dadosU.admin
       };
       environment.admin = dadosU.admin
-      console.log(this.usuario)
-      console.log(environment.admin)
+      // console.log(this.usuario)
+      // console.log(environment.admin)
     });
     
   }

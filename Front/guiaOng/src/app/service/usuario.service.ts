@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { AuthData } from '../auth/auth-data.model';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment.prod';
+import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 
@@ -65,7 +67,8 @@ export class UsuarioService {
             token: string,
             expiresIn: number,
             idUsuario: string,
-            admin: string
+            admin: string,
+            email: string
         }>("http://localhost:3000/api/usuario/login", authData).subscribe(resposta => {
             this.token = resposta.token;
             if (this.token) {
@@ -75,13 +78,14 @@ export class UsuarioService {
                 }, tempoValidadeToken * 1000);
                 this.autenticado = true;
                 this.idUsuario = resposta.idUsuario;
+                this.email = resposta.email
                 // this.getUsuario(this.idUsuario).subscribe(resp => {
                 //     this.admin = resp.admin
                 // });
                 this.admin = resposta.admin;
                 this.authStatusSubject.next(true);
                 this.salvarDadosDeAutenticacao(this.token, new Date(new Date().getTime() +
-                    tempoValidadeToken * 1000), this.idUsuario, this.admin);
+                    tempoValidadeToken * 1000), this.idUsuario, this.admin, this.email);
                 this.router.navigate(['/'])
             }
         });
@@ -103,12 +107,25 @@ export class UsuarioService {
         return this.autenticado;
     }
 
+    public getUserAdmin(){
+        const admin = localStorage.getItem('admin');
+        this.admin = admin
+        return this.admin;
+    }
+
+    public getEmailUser(){
+        const email = localStorage.getItem('email');
+        this.email = email;
+        return this.email;
+    }
+
     logout() {
         this.token = null;
         this.authStatusSubject.next(false);
         clearTimeout(this.tokenTimer);
         this.idUsuario = null;
         this.admin = null;
+        this.email = null;
         this.removerDadosDeAutenticacao()
         this.router.navigate(['/'])
     }
@@ -118,7 +135,9 @@ export class UsuarioService {
         const validade = localStorage.getItem('validade');
         const idUsuario = localStorage.getItem('idUsuario');
         const admin = localStorage.getItem('admin');
-        return (token && validade) ? { token: token, validade: new Date(validade), idUsuario: idUsuario, admin: admin } : null;
+        const email = localStorage.getItem('email');
+
+        return (token && validade) ? { token: token, validade: new Date(validade), idUsuario: idUsuario, admin: admin, email: email } : null;
     }
 
     autenticarAutomaticamente() {
@@ -136,6 +155,7 @@ export class UsuarioService {
                 this.autenticado = true;
                 this.idUsuario = dadosAutenticacao.idUsuario;
                 this.admin = dadosAutenticacao.admin;
+                this.email = dadosAutenticacao.email;
                 //diferença ja esta em milissegundos, não multiplique!
                 this.tokenTimer = setTimeout(() => {
                     this.logout()
@@ -145,11 +165,12 @@ export class UsuarioService {
         }
     }
 
-    private salvarDadosDeAutenticacao(token: string, validade: Date, idUsuario: string, admin: string) {
+    private salvarDadosDeAutenticacao(token: string, validade: Date, idUsuario: string, admin: string, email: string) {
         localStorage.setItem('token', token);
         localStorage.setItem('validade', validade.toISOString());
         localStorage.setItem('idUsuario', idUsuario);
         localStorage.setItem('admin', admin);
+        localStorage.setItem('email', email);
     }
 
     private removerDadosDeAutenticacao() {
@@ -157,6 +178,7 @@ export class UsuarioService {
         localStorage.removeItem('validade');
         localStorage.removeItem('idUsuario');
         localStorage.removeItem('admin');
+        localStorage.removeItem('email');
     }
 
 

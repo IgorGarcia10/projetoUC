@@ -15,15 +15,15 @@
                 </li>
     
                 <li class="nav-item">
-                    <p class="m-0 font-weight-bold fs-14 " *ngIf="email !== '' " id="nomeUser">{{email}}</p>
-                    <p class="m-0 font-weight-bold fs-14 " *ngIf="email == '' " id="nomeUser">Olá Doador!</p>
+                    <p class="m-0 font-weight-bold fs-14 " *ngIf="autenticado" id="nomeUser">{{email}}</p>
+                    <p class="m-0 font-weight-bold fs-14 " *ngIf="!autenticado" id="nomeUser">Olá Doador!</p>
                 </li>
-                <li class="nav-item">
-                    <!--<a class="fs-14 text-white" [routerLink]="['/user-edit', id]"> -->
+                <!-- <li class="nav-item">
+                    <a class="fs-14 text-white" [routerLink]="['/user-edit', id]"> 
                     <a class="fs-14">
                         <i class="fa fa-pencil-square-o" *ngIf="email !='' " aria-hidden="true"></i>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </div>
         
@@ -58,7 +58,7 @@
                     </p></a>
                 </li>
                 <!-- <li class="nav-item p-3" *ngIf="admin()"><a> -->
-                    <li class="nav-item p-3"><a>
+                    <li class="nav-item p-3" *ngIf="admin == 'true' "><a>
                     <p class="m-0 font-weight-bold fs-14 sb" routerLink='/area-adm'>Espaço do Adm
                         <!--{{nome}}-->
                     </p></a>

@@ -18,9 +18,6 @@ export class MenuComponent implements OnInit, OnDestroy {
   private authObserver: Subscription;
   public autenticado: boolean = false;
   public email: string | any;
-  
-
-  usuarios: any
   public admin: string | any;
   public idUsuario: string | any
   public usuario: AuthData | any
@@ -32,7 +29,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     private usuarioService: UsuarioService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.autenticado = this.usuarioService.isAutenticado();
     this.authObserver = this.usuarioService.getStatusSubject()
       .subscribe(
@@ -40,30 +37,35 @@ export class MenuComponent implements OnInit, OnDestroy {
           this.autenticado = autenticado;
         });
 
-    console.log(environment.admin)
-
-
-  }
-
-
-
-  public onUsuario() {
-    const usuarios = this.usuarioService.obterDadosDeAutenticacao()
-    this.admin = usuarios?.admin;
-    this.idUsuario = usuarios?.idUsuario
-
-    this.usuarioService.getUsuario(this.idUsuario)
-      .subscribe(dadosU => {
-        this.usuario = {
-          id: dadosU._id,
-          nome: dadosU.email,
-          admin: dadosU.admin
-        };
-        // console.log(this.usuario)
-      });
-
+    this.admin = this.usuarioService.getUserAdmin();
+    this.email = this.usuarioService.getEmailUser();
 
   }
+
+  
+
+
+
+  // public onUsuario(){
+  //   const usuarios = this.usuarioService.obterDadosDeAutenticacao()
+  //   this.admin = usuarios?.admin;
+  //   this.idUsuario = usuarios?.idUsuario
+
+  //   this.usuarioService.getUsuario(this.idUsuario)
+  //   .subscribe( dadosU => {
+  //     this.usuario = {
+  //       id: dadosU._id,
+  //       email: dadosU.email,
+  //       admin: dadosU.admin
+  //     };
+  //     environment.admin = dadosU.admin
+  //     environment.email = dadosU.email
+  //     this.admin = environment.admin
+  //     this.email = environment.email
+  //     // console.log(this.usuario)
+  //     // console.log(environment.email)
+  //   });
+  // }
 
 
 
@@ -82,6 +84,10 @@ export class MenuComponent implements OnInit, OnDestroy {
     environment.id = 0
 
     this.router.navigate(['/home']);
+  }
+
+  userAdmin(){
+    return environment.admin
   }
 
 }

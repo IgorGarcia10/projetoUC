@@ -9,18 +9,9 @@
 
                     <h1 class="text-center mb-3 cb"> Entrar</h1>
 
-                    <div class="form-group cb fs">
-                        <label for="usuario">Usuário</label>
-                        <input [(ngModel)]='userLogin.email' class="form-control mb-2" type="text" id="usuario" placeholder="Seu usuário">
-                    </div>
-                    <div class="form-group mb-4 cb fs">
-                        <label for="senha">Senha</label>
-                        <input [(ngModel)]='userLogin.senha' class="form-control" type="password" id="senha" placeholder="Digite sua Senha">
-                    </div>
-    
-                    <div class="d-flex justify-content-center">
-                        <button (click)='entrar()' class="btn btn-success mr-3" type="submit">Entrar</button>
-                        <button class="btn btn-danger ml-3" type="submit" routerLink='/'>Voltar</button>
+
+                    <div>
+                        <app-login></app-login>
                     </div>
 
                     <hr class="mt-4 mb-3">
