@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AuthData } from '../auth/auth-data.model';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 

@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { User } from '../model/user';
 import { AuthService } from '../service/auth.service';
 import { UsuarioService } from '../service/usuario.service';
+import { Usuario } from '../model/usuario.model';
 
 @Component({
   selector: 'app-menu',
@@ -18,9 +19,10 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   private authObserver: Subscription;
   public autenticado: boolean = false;
+  public email: string;
 
   private idUsuario: string | any;
-  public usuario: {} | any;
+  public usuario: Usuario | any;
 
 
   constructor(
@@ -30,19 +32,14 @@ export class MenuComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.authObserver =
-      this.usuarioService.getStatusSubject().
-        subscribe((autenticado) => {
+
+    this.authObserver = this.usuarioService.getStatusSubject()
+    .subscribe(
+      (autenticado) => {
           this.autenticado = autenticado;
         });
+    
 
-
-    this.usuario = this.usuarioService.getUsuario(this.idUsuario).subscribe(dadosUser => {
-      this.usuario = {
-        id: dadosUser._id,
-        email: dadosUser.email
-      };
-    });
   }
 
 

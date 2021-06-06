@@ -18,6 +18,15 @@ router.get('/:id', (req, res, next) => {
     })
 });
 
+router.get('', (req, res, next) => {
+  Usuario.find().then(documents => {
+    res.status(200).json({
+      mensagem: "Tudo OK",
+      usuarios: documents
+    });
+  })
+});
+
 router.post('/login', (req, res, next) => {
   let user;
   Usuario.findOne({
