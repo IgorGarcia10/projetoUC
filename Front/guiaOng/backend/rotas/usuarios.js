@@ -48,14 +48,19 @@ router.post('/login', (req, res, next) => {
       }
       const token = jwt.sign({
           email: user.email,
-          id: user._id
+          id: user._id,
+          admin: user.admin
+          
         },
         'minhasenha', {
           expiresIn: '1h'
         }
       )
       res.status(200).json({
-        token: token
+        token: token,
+        expiresIn: 3600, //unidade pode ser qualquer, aqui estamos usando segundos
+        idUsuario: user._id
+
       })
     })
     .catch(err => {
@@ -70,7 +75,8 @@ router.post('/signup', (req, res, next) => {
     .then(hash => {
       const usuario = new Usuario({
         email: req.body.email,
-        password: hash
+        password: hash,
+        admin: req.body.admin
       })
       usuario.save()
         .then(result => {

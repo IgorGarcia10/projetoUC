@@ -10,6 +10,8 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class SignupComponent implements OnInit {
 
+  public admin: string;
+
   constructor(
     private usuarioService: UsuarioService,
     private router: Router
@@ -20,7 +22,7 @@ export class SignupComponent implements OnInit {
 
   onSignup(form: NgForm) {
     if (form.invalid) return;
-    this.usuarioService.criarUsuario(form.value.email, form.value.password);
+    this.usuarioService.criarUsuario(form.value.email, form.value.password, this.admin);
     this.router.navigate(['/login'])
   }
 

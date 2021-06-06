@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { AuthData } from '../auth-data.model';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +9,8 @@ import { UsuarioService } from 'src/app/service/usuario.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  public admin: AuthData;
 
   constructor(
     private usuarioService: UsuarioService
@@ -18,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   onLogin(form: NgForm) {
     if (form.invalid) return;
-    this.usuarioService.login(form.value.email, form.value.password);
+    this.usuarioService.login(form.value.email, form.value.password, this.admin);
   }
 
 }

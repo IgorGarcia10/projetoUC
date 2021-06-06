@@ -2,6 +2,6 @@ export const environment = {
   production: true,
   token: '',
   nome: '',
-  admin: false,
+  admin: '',
   id:0
 };

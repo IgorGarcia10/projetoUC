@@ -6,6 +6,7 @@ import { User } from '../model/user';
 import { AuthService } from '../service/auth.service';
 import { UsuarioService } from '../service/usuario.service';
 import { Usuario } from '../model/usuario.model';
+import { AuthData } from '../auth/auth-data.model';
 
 @Component({
   selector: 'app-menu',
@@ -14,15 +15,15 @@ import { Usuario } from '../model/usuario.model';
 })
 export class MenuComponent implements OnInit, OnDestroy {
 
-  user: User = new User;
-  teste = "Jose"
-
   private authObserver: Subscription;
   public autenticado: boolean = false;
   public email: string | any;
+  
 
-  private idUsuario: string | any;
-  public usuario: Usuario | any;
+  usuarios: any
+  public admin: string | any;
+  public idUsuario: string | any
+  public usuario: AuthData | any
 
 
   constructor(
@@ -32,13 +33,35 @@ export class MenuComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-
+    this.autenticado = this.usuarioService.isAutenticado();
     this.authObserver = this.usuarioService.getStatusSubject()
-    .subscribe(
-      (autenticado) => {
+      .subscribe(
+        (autenticado) => {
           this.autenticado = autenticado;
         });
-    
+
+    console.log(environment.admin)
+
+
+  }
+
+
+
+  public onUsuario() {
+    const usuarios = this.usuarioService.obterDadosDeAutenticacao()
+    this.admin = usuarios?.admin;
+    this.idUsuario = usuarios?.idUsuario
+
+    this.usuarioService.getUsuario(this.idUsuario)
+      .subscribe(dadosU => {
+        this.usuario = {
+          id: dadosU._id,
+          nome: dadosU.email,
+          admin: dadosU.admin
+        };
+        // console.log(this.usuario)
+      });
+
 
   }
 
@@ -59,10 +82,6 @@ export class MenuComponent implements OnInit, OnDestroy {
     environment.id = 0
 
     this.router.navigate(['/home']);
-  }
-
-  admin() {
-    return environment.admin;
   }
 
 }

@@ -18,6 +18,8 @@ import { OngsComponent } from './ongs/ongs.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { UsuarioInserirComponent } from './usuario-inserir/usuario-inserir.component';
 
+import { AuthGuard } from './auth/auth.guard'
+
 const routes: Routes = [
 
   {path: '', redirectTo: 'home', pathMatch: 'full'}, 
@@ -50,6 +52,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }
