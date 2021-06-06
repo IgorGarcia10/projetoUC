@@ -12,6 +12,7 @@ export class UsuarioService {
     private usuarios: Usuario[] = [];
     private listaUsuariosAtualizada = new Subject<Usuario[]>();
     private token: string | any;
+    private email: string | any;
     private authStatusSubject = new Subject<boolean>();
 
     constructor(
@@ -37,7 +38,7 @@ export class UsuarioService {
             email: email,
             password: senha
         }
-        this.httpClient.post<{ token: string, email: string }>("http://localhost:3000/api/usuario/login",
+        this.httpClient.post<{ token: string }>("http://localhost:3000/api/usuario/login",
             authData).subscribe(resposta => {
                 this.token = resposta.token;
                 this.authStatusSubject.next(true);

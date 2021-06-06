@@ -15,13 +15,13 @@
                 </li>
     
                 <li class="nav-item">
-                    <p class="m-0 font-weight-bold fs-14 " *ngIf="usuario.email !== null " id="nomeUser">{{usuario.email}}</p>
-                    <p class="m-0 font-weight-bold fs-14 " *ngIf="usuario.email == null " id="nomeUser">Olá Doador!</p>
+                    <p class="m-0 font-weight-bold fs-14 " *ngIf="email !== '' " id="nomeUser">{{email}}</p>
+                    <p class="m-0 font-weight-bold fs-14 " *ngIf="email == '' " id="nomeUser">Olá Doador!</p>
                 </li>
                 <li class="nav-item">
                     <!--<a class="fs-14 text-white" [routerLink]="['/user-edit', id]"> -->
                     <a class="fs-14">
-                        <i class="fa fa-pencil-square-o" *ngIf="usuario.email != null " aria-hidden="true"></i>
+                        <i class="fa fa-pencil-square-o" *ngIf="email !='' " aria-hidden="true"></i>
                     </a>
                 </li>
             </ul>

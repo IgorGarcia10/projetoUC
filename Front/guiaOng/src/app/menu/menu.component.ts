@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   private authObserver: Subscription;
   public autenticado: boolean = false;
-  public email: string;
+  public email: string | any;
 
   private idUsuario: string | any;
   public usuario: Usuario | any;
