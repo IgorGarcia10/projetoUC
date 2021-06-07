@@ -14,7 +14,7 @@
 }
 
 .container-fluid{
-    background-color: rgb(241, 241, 241);
+    background-color: #F1F5F6;
 }
 
 .col-1{
@@ -29,4 +29,31 @@
 
 .cor-tema{
     color: #59B9B3;
+}
+.cor-w{
+    background-color: white;
+}
+
+ul{
+    list-style: none    
+}
+ul li{
+    display: inline;
+    padding: 2rem;
+}
+
+.fa-facebook-official{
+    color: rgb(42, 42, 187);
+}
+
+.fa-twitter{
+    color: rgb(55, 215, 255);
+}
+
+.fa-whatsapp{
+    color: rgb(41, 201, 41);
+}
+
+.share{
+    margin-left: 1rem;
 }

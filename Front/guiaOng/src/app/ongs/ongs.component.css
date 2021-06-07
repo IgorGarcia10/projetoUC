@@ -1,5 +1,6 @@
 .card {
   cursor: pointer;
+  border-radius: 25%;
 }
 
 .btn-doar {
@@ -13,8 +14,9 @@
 
 .text-banner{
   margin-top: -55rem;
+  padding: 2rem;
   font-size: 5rem;
-  background-color: rgba(13, 148, 148, 0.582);
+  background-color: rgba(221, 155, 11, 0.822);
   color: white;
   
 }

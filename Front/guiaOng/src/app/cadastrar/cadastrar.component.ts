@@ -68,7 +68,7 @@ export class CadastrarComponent implements OnInit {
   ];
 
   ngOnInit() {
-    window.scroll(0, 125)
+    window.scroll(0, 50)
   }
 
   data = {

@@ -5,3 +5,13 @@ mat-form-field {
 /* #admin{
   visibility: hidden;
 } */
+
+.cb {
+  background-color: #59B9B3;
+  color: white;
+}
+
+.cbv {
+  background-color: #e98d24;
+  color: white;
+}

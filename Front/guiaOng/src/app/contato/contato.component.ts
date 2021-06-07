@@ -36,7 +36,7 @@ export class ContatoComponent implements OnInit {
 
 
     ngOnInit() {
-      window.scroll(0, 125)
+      window.scroll(0,0)
       this.form = new FormGroup({
   
         nome: new FormControl(null,{

@@ -1,3 +1,8 @@
 mat-form-field {
   width: 100%;
 }
+
+.cb {
+  background-color: #59B9B3;
+  color: white;
+}

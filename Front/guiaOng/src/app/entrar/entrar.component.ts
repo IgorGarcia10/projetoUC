@@ -21,7 +21,7 @@ export class EntrarComponent implements OnInit {
   ) { }
 
   ngOnInit(){
-    window.scroll(0, 125)  
+    window.scroll(0, 20)  
   }
 
   entrar(){

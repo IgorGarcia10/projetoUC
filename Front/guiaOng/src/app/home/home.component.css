@@ -1,16 +1,18 @@
 
-/* .banner{
-    background-image: url("../../assets/img/banner-1.jpg");
-
-} */
+.banner{
+    padding: 0;
+}
 
 .text-banner{
-    margin-top: -24rem;
+    margin-top: -26rem;
     font-size: 5rem;
+    padding: 2rem;
+    background-color: rgba(17, 17, 17, 0.486);
 }
 
 .card-ong{
     cursor: pointer;
+    border-radius: 25%;
 }
 
 #dados{
@@ -22,15 +24,15 @@ background-color: rgb(26, 153, 111);
 }
 
 .ico-amarelo{
-    color: rgb(247, 223, 15);
+    color: rgba(247, 224, 15, 0.89);
 }
 
 .ico-vermelho{
-    color: rgb(245, 55, 55);
+    color: rgba(245, 55, 55, 0.877);
 }
 
 .ico-roxo{
-    color: rgb(216, 86, 216);
+    color: rgba(216, 86, 216, 0.877);
 }
 
 .cardcolor{
@@ -38,7 +40,7 @@ background-color: rgb(26, 153, 111);
 }
 
 .jumbotron{
-    background-color: #5692C7;
+    background-color: #000000cc;
 }
 
 .btn-jumbotron{

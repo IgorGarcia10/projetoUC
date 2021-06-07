@@ -14,7 +14,7 @@ export class OngIndividualComponent implements OnInit {
   ongs: Ong[] = []
   private ongsSubscription: Subscription;
   modo: string;
-  private idOng: string | any;
+  public idOng: string | any;
   public ong: Ong | any;
 
   constructor(

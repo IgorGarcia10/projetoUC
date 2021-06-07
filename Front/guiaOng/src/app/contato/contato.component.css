@@ -1,3 +1,11 @@
+.mensagemenviada{
+  height: 25rem; 
+}
+
+.mensagem{
+  margin-top: 9rem;
+}
+
 mat-form-field, input {
     width: 70%;
   }
