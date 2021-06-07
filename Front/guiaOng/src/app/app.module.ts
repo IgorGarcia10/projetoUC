@@ -2,7 +2,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { AuthInterceptor } from './auth/auth-interceptor'
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { UsuarioInserirComponent } from './usuario-inserir/usuario-inserir.component';
 
@@ -32,7 +32,7 @@ import { OngIndividualComponent } from './ong-individual/ong-individual.componen
 import { DoacoesComponent } from './doacoes/doacoes.component';
 import { ContaComponent } from './conta/conta.component';
 
-
+import { ContatoService } from './service/contato.service';
 import { UsuarioService } from './service/usuario.service';
 import { CategoriaService } from './service/categoria.service';
 import { CategoriaInserirComponent } from './categoria/categoria-inserir/categoria-inserir.component';
@@ -74,6 +74,7 @@ import { SignupComponent } from './auth/signup/signup.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     NoopAnimationsModule,
     MatInputModule,
@@ -94,6 +95,7 @@ import { SignupComponent } from './auth/signup/signup.component';
     UsuarioService,
     CategoriaService,
     OngService,
+    ContatoService,
     
 
   ],

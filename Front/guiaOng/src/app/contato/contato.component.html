@@ -1,1 +1,68 @@
-<!-- Página de contato -->
+<br>
+<mat-accordion *ngIf="enviado == false">
+<h1 class="text-center mb-3 cb"> Entre em contato conosco!</h1>
+<mat-card>
+    <form [formGroup]="form" (submit)="onEnviar()" >
+        
+        <div class="row d-flex justify-content-center">
+      
+      <mat-form-field class=""> 
+        <input type="text" 
+        matInput
+        formControlName="nome" 
+        placeholder="Nome Completo" 
+        name="nome"/>
+        <mat-error *ngIf="form.get('nome')">Nome com no minimo 3 caracteres
+          
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class=""> 
+        <input type="text" 
+        matInput
+        formControlName="email" 
+        placeholder="Email@email.com" 
+        name="email"/>
+        <mat-error *ngIf="form.get('email')">Email obrigatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class=""> 
+        <input type="text" 
+        matInput
+        formControlName="assunto" 
+        placeholder="Sugestão, Reclamação ou Suporte" 
+        name="assunto"/>
+        <mat-error *ngIf="form.get('assunto')">Assunto obrigatório
+        </mat-error>
+      </mat-form-field>
+      
+
+      <mat-form-field appearance="fill">
+        <mat-label>Deixe sua mensagem, critica ou reclamação</mat-label>
+        <textarea matInput 
+        formControlName="mensagem" 
+        placeholder="Insera sua mensagem" 
+        name="mensagem"></textarea>
+        <mat-error *ngIf="form.get('mensagem')">Mensagem com no minimo 30 caracteres
+        </mat-error>
+      </mat-form-field>
+
+
+      <button mat-button color="primary" class="button" >Enviar</button>
+    </div>
+        <br>      
+    </form>
+  </mat-card>
+</mat-accordion>
+
+<mat-accordion *ngIf="mensagemCarregando == true">
+  <br>
+  <br>
+  <br>
+  <h1 class="text-center mb-3 cb">Sua mensagem foi enviada com sucesso!</h1>
+  <br>
+  <br>
+  <br>
+  <br>
+</mat-accordion>

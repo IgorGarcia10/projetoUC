@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const categoriaRoutes = require('./rotas/categorias');
 const ongRoutes = require('./rotas/ongs');
 const usuarioRoutes = require('./rotas/usuarios');
+const contatoRoutes = require('./rotas/contato');
 
 mongoose.connect('mongodb+srv://user_guiaong:guiaong123@clusterguiaong.xptir.mongodb.net/guiaOng?retryWrites=true&w=majority')
   .then(() => {
@@ -26,5 +27,6 @@ app.use((req, res, next) => {
 app.use('/api/categorias', categoriaRoutes);
 app.use('/api/ongs', ongRoutes);
 app.use('/api/usuario', usuarioRoutes);
+app.use('/api/contato', contatoRoutes);
 
 module.exports = app;

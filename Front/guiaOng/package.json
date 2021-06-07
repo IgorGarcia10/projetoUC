@@ -33,6 +33,7 @@
     "mongoose-unique-validator": "^2.0.3",
     "ngx-bootstrap": "^6.2.0",
     "ngx-order-pipe": "^2.1.1",
+    "nodemailer": "^6.6.1",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
