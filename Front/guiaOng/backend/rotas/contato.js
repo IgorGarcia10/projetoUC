@@ -91,7 +91,7 @@ router.delete('/:id', (req, res, next) => {
     });
 
     transporter.sendMail({
-        from: '"Suport "<profceffram@gmail.com>', // sender address
+        from: '"Suport "<ongsuport@gmail.com>', // sender address
         to: 'ongsuport@gmail.com', // list of receivers
         subject: contato.assunto, // Subject line
         text: 'Nome: '+ contato.nome +' \nEmail: '+contato.email +' \nMensagem: '+contato.mensagem ,
