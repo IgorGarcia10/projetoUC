@@ -7,7 +7,7 @@
 </p>
 
 
-### Requesitos
+## Requesitos
 
 <ul>
     <li><a href="https://angular.io/">Angular</a></li>
