@@ -1,9 +1,9 @@
 <h1 align="center"> Guia ONG</h1>
 
 <p align="center">
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/IgorGarcia10/projetoUC?color=#59B9B3">
-  <img alt="Last commit on GitHub" src="https://img.shields.io/github/last-commit/IgorGarcia10/projetoUC?color=#59B9B3">
-  <img alt="Project programing languages count" src="https://img.shields.io/github/languages/count/IgorGarcia10/projetoUC?color=#59B9B3">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/IgorGarcia10/projetoUC?color=blue">
+  <img alt="Last commit on GitHub" src="https://img.shields.io/github/last-commit/IgorGarcia10/projetoUC?color=blue">
+  <img alt="Project programing languages count" src="https://img.shields.io/github/languages/count/IgorGarcia10/projetoUC?color=blue">
 </p>
 
 
